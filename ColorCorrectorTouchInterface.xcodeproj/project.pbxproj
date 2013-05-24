@@ -22,7 +22,9 @@
 		9A8B75CE174FB95B001F2489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75A8174FB95A001F2489 /* UIKit.framework */; };
 		9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AA174FB95A001F2489 /* Foundation.framework */; };
 		9A8B75D7174FB95B001F2489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B75D5174FB95B001F2489 /* InfoPlist.strings */; };
-		9A8B75DA174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B75D9174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.m */; };
+		9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B75E3174FC114001F2489 /* ViewControllerTest.m */; };
+		9A8B75EA174FC1E7001F2489 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */; };
+		9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +58,9 @@
 		9A8B75CC174FB95B001F2489 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A8B75D4174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorCorrectorTouchInterfaceTests-Info.plist"; sourceTree = "<group>"; };
 		9A8B75D6174FB95B001F2489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A8B75D8174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCorrectorTouchInterfaceTests.h; sourceTree = "<group>"; };
-		9A8B75D9174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorCorrectorTouchInterfaceTests.m; sourceTree = "<group>"; };
+		9A8B75E3174FC114001F2489 /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
+		9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				9A8B75CD174FB95B001F2489 /* SenTestingKit.framework in Frameworks */,
 				9A8B75CE174FB95B001F2489 /* UIKit.framework in Frameworks */,
 				9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */,
+				9A8B75EA174FC1E7001F2489 /* OCHamcrestIOS.framework in Frameworks */,
+				9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,8 @@
 		9A8B75A7174FB95A001F2489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */,
+				9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */,
 				9A8B75A8174FB95A001F2489 /* UIKit.framework */,
 				9A8B75AA174FB95A001F2489 /* Foundation.framework */,
 				9A8B75AC174FB95A001F2489 /* CoreGraphics.framework */,
@@ -144,8 +151,7 @@
 		9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A8B75D8174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.h */,
-				9A8B75D9174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.m */,
+				9A8B75E3174FC114001F2489 /* ViewControllerTest.m */,
 				9A8B75D3174FB95B001F2489 /* Supporting Files */,
 			);
 			path = ColorCorrectorTouchInterfaceTests;
@@ -280,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8B75DA174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests.m in Sources */,
+				9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,10 +415,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColorCorrectorTouchInterface/ColorCorrectorTouchInterface-Prefix.pch";
 				INFOPLIST_FILE = "ColorCorrectorTouchInterfaceTests/ColorCorrectorTouchInterfaceTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Frameworks/OCHamcrest-2.0.1/OCHamcrest.framework\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -426,10 +437,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColorCorrectorTouchInterface/ColorCorrectorTouchInterface-Prefix.pch";
 				INFOPLIST_FILE = "ColorCorrectorTouchInterfaceTests/ColorCorrectorTouchInterfaceTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Frameworks/OCHamcrest-2.0.1/OCHamcrest.framework\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
