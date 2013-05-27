@@ -471,6 +471,7 @@
 				9A8B75DF174FB95B001F2489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A8B75E0174FB95B001F2489 /* Build configuration list for PBXNativeTarget "ColorCorrectorTouchInterfaceTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				9A8B75E2174FB95B001F2489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
