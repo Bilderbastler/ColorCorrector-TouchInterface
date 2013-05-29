@@ -14,8 +14,12 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 // Uncomment the next two lines to use OCHamcrest for test assertions:
-#define HC_SHORTHAND
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
+//#define HC_SHORTHAND
+//#import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+// #define EXP_OLD_SYNTAX // enable backward-compatibility
+#define EXP_SHORTHAND
+#import "Expecta.h"
 
 // Uncomment the next two lines to use OCMockito for mock objects:
 #define MOCKITO_SHORTHAND
@@ -39,7 +43,7 @@
     [sut view];
     
     // then
-    assertThat(sut.colorField, is(notNilValue()));
+    expect(sut.colorField).notTo.beNil();
 }
 
 
@@ -48,7 +52,7 @@
     [sut view];
     
     // then
-    assertThat([sut luminanceField], is(notNilValue()));
+    expect([sut luminanceField]).notTo.beNil();
 }
 
 
@@ -58,8 +62,7 @@
     // when
     
     // then
-    assertThat(sut.colorField.gestureRecognizers, hasCountOf(3));
-    
+    expect(sut.colorField.gestureRecognizers).to.haveCountOf(3);    
 }
 
 - (void)testLuminanceFieldHasGestureRecognizers {
@@ -68,8 +71,7 @@
     // when
     
     // then
-    assertThat(sut.luminanceField.gestureRecognizers, hasCountOf(3));
-    
+    expect(sut.luminanceField.gestureRecognizers).to.haveCountOf(3);    
 }
 
 @end

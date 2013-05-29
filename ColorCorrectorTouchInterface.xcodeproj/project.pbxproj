@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A747DFF17564A9600F0DE24 /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */; };
+		9A747E0117564D0500F0DE24 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */; };
 		9A8B75A9174FB95A001F2489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75A8174FB95A001F2489 /* UIKit.framework */; };
 		9A8B75AB174FB95A001F2489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AA174FB95A001F2489 /* Foundation.framework */; };
 		9A8B75AD174FB95A001F2489 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AC174FB95A001F2489 /* CoreGraphics.framework */; };
@@ -23,7 +25,6 @@
 		9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AA174FB95A001F2489 /* Foundation.framework */; };
 		9A8B75D7174FB95B001F2489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B75D5174FB95B001F2489 /* InfoPlist.strings */; };
 		9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B75E3174FC114001F2489 /* ViewControllerTest.m */; };
-		9A8B75EA174FC1E7001F2489 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */; };
 		9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A747DDE17564A5600F0DE24 /* EXPBackwardCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPBackwardCompatibility.h; sourceTree = "<group>"; };
+		9A747DDF17564A5600F0DE24 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
+		9A747DE017564A5600F0DE24 /* EXPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPDefines.h; sourceTree = "<group>"; };
+		9A747DE117564A5600F0DE24 /* EXPDoubleTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPDoubleTuple.h; sourceTree = "<group>"; };
+		9A747DE217564A5600F0DE24 /* Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expecta.h; sourceTree = "<group>"; };
+		9A747DE317564A5600F0DE24 /* ExpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpectaSupport.h; sourceTree = "<group>"; };
+		9A747DE417564A5600F0DE24 /* EXPExpect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPExpect.h; sourceTree = "<group>"; };
+		9A747DE517564A5600F0DE24 /* EXPFloatTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPFloatTuple.h; sourceTree = "<group>"; };
+		9A747DE617564A5600F0DE24 /* EXPMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPMatcher.h; sourceTree = "<group>"; };
+		9A747DE717564A5600F0DE24 /* EXPMatcherHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPMatcherHelpers.h; sourceTree = "<group>"; };
+		9A747DE817564A5600F0DE24 /* EXPMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPMatchers.h; sourceTree = "<group>"; };
+		9A747DE917564A5600F0DE24 /* EXPMatchers+beCloseTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beCloseTo.h"; sourceTree = "<group>"; };
+		9A747DEA17564A5600F0DE24 /* EXPMatchers+beFalsy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beFalsy.h"; sourceTree = "<group>"; };
+		9A747DEB17564A5600F0DE24 /* EXPMatchers+beGreaterThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beGreaterThan.h"; sourceTree = "<group>"; };
+		9A747DEC17564A5600F0DE24 /* EXPMatchers+beGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
+		9A747DED17564A5600F0DE24 /* EXPMatchers+beIdenticalTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beIdenticalTo.h"; sourceTree = "<group>"; };
+		9A747DEE17564A5600F0DE24 /* EXPMatchers+beInstanceOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beInstanceOf.h"; sourceTree = "<group>"; };
+		9A747DEF17564A5600F0DE24 /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
+		9A747DF017564A5600F0DE24 /* EXPMatchers+beKindOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beKindOf.h"; sourceTree = "<group>"; };
+		9A747DF117564A5600F0DE24 /* EXPMatchers+beLessThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beLessThan.h"; sourceTree = "<group>"; };
+		9A747DF217564A5600F0DE24 /* EXPMatchers+beLessThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beLessThanOrEqualTo.h"; sourceTree = "<group>"; };
+		9A747DF317564A5600F0DE24 /* EXPMatchers+beNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beNil.h"; sourceTree = "<group>"; };
+		9A747DF417564A5600F0DE24 /* EXPMatchers+beSubclassOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beSubclassOf.h"; sourceTree = "<group>"; };
+		9A747DF517564A5600F0DE24 /* EXPMatchers+beTruthy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beTruthy.h"; sourceTree = "<group>"; };
+		9A747DF617564A5600F0DE24 /* EXPMatchers+contain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+contain.h"; sourceTree = "<group>"; };
+		9A747DF717564A5600F0DE24 /* EXPMatchers+equal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+equal.h"; sourceTree = "<group>"; };
+		9A747DF817564A5600F0DE24 /* EXPMatchers+haveCountOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+haveCountOf.h"; sourceTree = "<group>"; };
+		9A747DF917564A5600F0DE24 /* EXPMatchers+raise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+raise.h"; sourceTree = "<group>"; };
+		9A747DFA17564A5600F0DE24 /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
+		9A747DFB17564A5600F0DE24 /* EXPUnsupportedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPUnsupportedObject.h; sourceTree = "<group>"; };
+		9A747DFC17564A5600F0DE24 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Expecta.h"; sourceTree = "<group>"; };
+		9A747DFD17564A5600F0DE24 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Expecta.h"; sourceTree = "<group>"; };
+		9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libExpecta-ios-universal.a"; sourceTree = "<group>"; };
+		9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		9A8B75A5174FB95A001F2489 /* ColorCorrectorTouchInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorCorrectorTouchInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8B75A8174FB95A001F2489 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A8B75AA174FB95A001F2489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,7 +94,6 @@
 		9A8B75D4174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorCorrectorTouchInterfaceTests-Info.plist"; sourceTree = "<group>"; };
 		9A8B75D6174FB95B001F2489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A8B75E3174FC114001F2489 /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
-		9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,14 +115,55 @@
 				9A8B75CD174FB95B001F2489 /* SenTestingKit.framework in Frameworks */,
 				9A8B75CE174FB95B001F2489 /* UIKit.framework in Frameworks */,
 				9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */,
-				9A8B75EA174FC1E7001F2489 /* OCHamcrestIOS.framework in Frameworks */,
 				9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */,
+				9A747DFF17564A9600F0DE24 /* libExpecta-ios-universal.a in Frameworks */,
+				9A747E0117564D0500F0DE24 /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A747DDD17564A1000F0DE24 /* expecta */ = {
+			isa = PBXGroup;
+			children = (
+				9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */,
+				9A747DDE17564A5600F0DE24 /* EXPBackwardCompatibility.h */,
+				9A747DDF17564A5600F0DE24 /* EXPBlockDefinedMatcher.h */,
+				9A747DE017564A5600F0DE24 /* EXPDefines.h */,
+				9A747DE117564A5600F0DE24 /* EXPDoubleTuple.h */,
+				9A747DE217564A5600F0DE24 /* Expecta.h */,
+				9A747DE317564A5600F0DE24 /* ExpectaSupport.h */,
+				9A747DE417564A5600F0DE24 /* EXPExpect.h */,
+				9A747DE517564A5600F0DE24 /* EXPFloatTuple.h */,
+				9A747DE617564A5600F0DE24 /* EXPMatcher.h */,
+				9A747DE717564A5600F0DE24 /* EXPMatcherHelpers.h */,
+				9A747DE817564A5600F0DE24 /* EXPMatchers.h */,
+				9A747DE917564A5600F0DE24 /* EXPMatchers+beCloseTo.h */,
+				9A747DEA17564A5600F0DE24 /* EXPMatchers+beFalsy.h */,
+				9A747DEB17564A5600F0DE24 /* EXPMatchers+beGreaterThan.h */,
+				9A747DEC17564A5600F0DE24 /* EXPMatchers+beGreaterThanOrEqualTo.h */,
+				9A747DED17564A5600F0DE24 /* EXPMatchers+beIdenticalTo.h */,
+				9A747DEE17564A5600F0DE24 /* EXPMatchers+beInstanceOf.h */,
+				9A747DEF17564A5600F0DE24 /* EXPMatchers+beInTheRangeOf.h */,
+				9A747DF017564A5600F0DE24 /* EXPMatchers+beKindOf.h */,
+				9A747DF117564A5600F0DE24 /* EXPMatchers+beLessThan.h */,
+				9A747DF217564A5600F0DE24 /* EXPMatchers+beLessThanOrEqualTo.h */,
+				9A747DF317564A5600F0DE24 /* EXPMatchers+beNil.h */,
+				9A747DF417564A5600F0DE24 /* EXPMatchers+beSubclassOf.h */,
+				9A747DF517564A5600F0DE24 /* EXPMatchers+beTruthy.h */,
+				9A747DF617564A5600F0DE24 /* EXPMatchers+contain.h */,
+				9A747DF717564A5600F0DE24 /* EXPMatchers+equal.h */,
+				9A747DF817564A5600F0DE24 /* EXPMatchers+haveCountOf.h */,
+				9A747DF917564A5600F0DE24 /* EXPMatchers+raise.h */,
+				9A747DFA17564A5600F0DE24 /* EXPMatchers+raiseWithReason.h */,
+				9A747DFB17564A5600F0DE24 /* EXPUnsupportedObject.h */,
+				9A747DFC17564A5600F0DE24 /* NSObject+Expecta.h */,
+				9A747DFD17564A5600F0DE24 /* NSValue+Expecta.h */,
+			);
+			name = expecta;
+			sourceTree = "<group>";
+		};
 		9A8B759C174FB95A001F2489 = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +186,8 @@
 		9A8B75A7174FB95A001F2489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */,
 				9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */,
-				9A8B75E9174FC1E7001F2489 /* OCHamcrestIOS.framework */,
 				9A8B75A8174FB95A001F2489 /* UIKit.framework */,
 				9A8B75AA174FB95A001F2489 /* Foundation.framework */,
 				9A8B75AC174FB95A001F2489 /* CoreGraphics.framework */,
@@ -160,6 +235,7 @@
 		9A8B75D3174FB95B001F2489 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A747DDD17564A1000F0DE24 /* expecta */,
 				9A8B75D4174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests-Info.plist */,
 				9A8B75D5174FB95B001F2489 /* InfoPlist.strings */,
 			);
@@ -422,8 +498,9 @@
 				INFOPLIST_FILE = "ColorCorrectorTouchInterfaceTests/ColorCorrectorTouchInterfaceTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Frameworks/OCHamcrest-2.0.1/OCHamcrest.framework\"",
+					"\"$(SRCROOT)/ColorCorrectorTouchInterfaceTests\"",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -444,8 +521,9 @@
 				INFOPLIST_FILE = "ColorCorrectorTouchInterfaceTests/ColorCorrectorTouchInterfaceTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Frameworks/OCHamcrest-2.0.1/OCHamcrest.framework\"",
+					"\"$(SRCROOT)/ColorCorrectorTouchInterfaceTests\"",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
