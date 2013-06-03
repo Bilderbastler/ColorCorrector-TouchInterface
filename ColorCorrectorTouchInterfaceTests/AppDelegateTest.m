@@ -10,6 +10,7 @@
 
     // Collaborators
 #import "ColorComponentModel.h"
+#import "ViewController.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -33,25 +34,25 @@
 @implementation AppDelegateTest
 {
     // test fixture ivars go here
-    AppDelegate *appDelegate;
+    AppDelegate *sut;
 }
 -(void)setUp{
-    appDelegate = [[AppDelegate alloc] init];
+    sut = [[AppDelegate alloc] init];
+}
+
+-(void)tearDown{
+    sut = nil;
 }
 
 
-- (void)testApplicationAfterLaunch {
-    // given
-    
+- (void)testApplicationAfterLaunch {    
     // when
+    [sut application: nil didFinishLaunchingWithOptions:nil];
     
     // then
-    expect(appDelegate.lift).notTo.beNil();
-    expect(appDelegate.gamma).notTo.beNil();
-    expect(appDelegate.gain).notTo.beNil();
-    
-    expect(appDelegate.lift).to.beInstanceOf([ColorComponentModel class]);
-    
+    expect(sut.viewController.lift).notTo.beNil();
+    expect(sut.viewController.gamma).notTo.beNil();
+    expect(sut.viewController.gain).notTo.beNil();
 }
 
 @end

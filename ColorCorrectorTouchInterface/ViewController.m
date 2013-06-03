@@ -43,7 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)oneFingerMoved:(UIPanGestureRecognizer*)gr{
+- (void)fingerMoved:(UIPanGestureRecognizer*)gr{
     CGPoint vector = [gr velocityInView:gr.view];
     NSLog(@"One Finger moved: x %f, y %f", vector.x, vector.y);
 }

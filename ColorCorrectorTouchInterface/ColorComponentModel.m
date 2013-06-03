@@ -10,4 +10,8 @@
 
 @implementation ColorComponentModel
 
+-(void)changeHue:(CGPoint)velocityVector{
+    
+}
+
 @end

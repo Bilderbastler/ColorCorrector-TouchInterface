@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorComponentModel.h"
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *colorField;
 @property (weak, nonatomic) IBOutlet UIView *luminanceField;
+
+@property (strong, nonatomic) ColorComponentModel * lift;
+@property (strong, nonatomic) ColorComponentModel * gamma;
+@property (strong, nonatomic) ColorComponentModel * gain;
+
+- (void)fingerMoved:(UIPanGestureRecognizer*)gr;
 
 @end

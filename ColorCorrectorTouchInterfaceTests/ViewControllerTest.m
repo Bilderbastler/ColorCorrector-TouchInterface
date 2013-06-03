@@ -22,9 +22,10 @@
 #import "Expecta.h"
 
 // Uncomment the next two lines to use OCMockito for mock objects:
-#define MOCKITO_SHORTHAND
-#import <OCMockitoIOS/OCMockitoIOS.h>
+//#define MOCKITO_SHORTHAND
+//#import <OCMockitoIOS/OCMockitoIOS.h>
 
+#import <OCMock/OCMock.h>
 
 @interface ViewControllerTest : SenTestCase
 @end
@@ -73,5 +74,28 @@
     // then
     expect(sut.luminanceField.gestureRecognizers).to.haveCountOf(3);    
 }
+
+- (void)testViewControllerCallsModelWhenColorInterfaceTouched {
+    // given
+    UIPanGestureRecognizer *gr = [OCMockObject mockForClass: [UIPanGestureRecognizer class]];
+    id grMock = gr;
+    CGPoint velocityVektor = CGPointMake(20, 20);
+    gr.maximumNumberOfTouches = 3; // gain
+    [[[grMock stub] andReturnValue: OCMOCK_VALUE(velocityVektor)] velocityInView:sut.colorField];
+    
+    ColorComponentModel *colorComponent = [OCMockObject mockForClass: [ColorComponentModel class]];
+    id colorMock = colorComponent;
+    [[colorMock expect] changeHue:velocityVektor];
+    sut.gain = colorComponent;
+    
+    // when
+    [sut fingerMoved:gr];
+    
+    // then
+    [colorMock verify];
+    
+    
+}
+
 
 @end

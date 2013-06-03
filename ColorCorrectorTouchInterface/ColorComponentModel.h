@@ -10,4 +10,6 @@
 
 @interface ColorComponentModel : NSObject
 
+-(void)changeHue:(CGPoint)velocityVector;
+
 @end
