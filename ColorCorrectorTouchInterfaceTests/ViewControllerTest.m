@@ -77,8 +77,8 @@
 
 - (void)testViewControllerCallsModelWhenColorInterfaceTouched {
     // given
-    UIPanGestureRecognizer *gr = [OCMockObject mockForClass: [UIPanGestureRecognizer class]];
-    id grMock = gr;
+    UIPanGestureRecognizer *gr = [[UIPanGestureRecognizer alloc] initWithTarget:nil action:nil];
+    id grMock  = [OCMockObject partialMockForObject:gr];
     CGPoint velocityVektor = CGPointMake(20, 20);
     gr.maximumNumberOfTouches = 3; // gain
     [[[grMock stub] andReturnValue: OCMOCK_VALUE(velocityVektor)] velocityInView:sut.colorField];
@@ -92,6 +92,8 @@
     [sut fingerMoved:gr];
     
     // then
+    expect(gr.maximumNumberOfTouches).to.equal(3);
+    expect(^{[colorMock verify];}).notTo.raiseAny();
     [colorMock verify];
     
     

@@ -16,9 +16,9 @@
     
 }
 
-- (void)addGestureRecognizrWithHandlerMethod:(SEL)method ForNumberOfFingers:(int)numberOfFingers toView:(UIView *)controllField
+- (void)addGestureRecognizrforNumberOfFingers:(int)numberOfFingers toView:(UIView *)controllField
 {
-    UIPanGestureRecognizer * gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:method];
+    UIPanGestureRecognizer * gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(fingerMoved:)];
     gr.minimumNumberOfTouches = numberOfFingers;
     gr.maximumNumberOfTouches = numberOfFingers;
     [controllField addGestureRecognizer:gr];    
@@ -27,14 +27,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addGestureRecognizrforNumberOfFingers:1 toView:self.colorField];
+    [self addGestureRecognizrforNumberOfFingers:2 toView:self.colorField];
+    [self addGestureRecognizrforNumberOfFingers:3 toView:self.colorField];
     
-    [self addGestureRecognizrWithHandlerMethod:@selector(oneFingerMoved:) ForNumberOfFingers:1 toView:self.colorField];
-    [self addGestureRecognizrWithHandlerMethod:@selector(twoFingersMoved:) ForNumberOfFingers:2 toView:self.colorField];
-    [self addGestureRecognizrWithHandlerMethod:@selector(twoFingersMoved:) ForNumberOfFingers:3 toView:self.colorField];
-    
-    [self addGestureRecognizrWithHandlerMethod:@selector(oneFingerMoved:) ForNumberOfFingers:1 toView:self.luminanceField];
-    [self addGestureRecognizrWithHandlerMethod:@selector(twoFingersMoved:) ForNumberOfFingers:2 toView:self.luminanceField];
-    [self addGestureRecognizrWithHandlerMethod:@selector(twoFingersMoved:) ForNumberOfFingers:3 toView:self.luminanceField];
+    [self addGestureRecognizrforNumberOfFingers:1 toView:self.luminanceField];
+    [self addGestureRecognizrforNumberOfFingers:2 toView:self.luminanceField];
+    [self addGestureRecognizrforNumberOfFingers:3 toView:self.luminanceField];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,15 +44,7 @@
 
 - (void)fingerMoved:(UIPanGestureRecognizer*)gr{
     CGPoint vector = [gr velocityInView:gr.view];
-    NSLog(@"One Finger moved: x %f, y %f", vector.x, vector.y);
-}
-
-- (void)twoFingersMoved:(UIPanGestureRecognizer*)gr{
-    NSLog(@"Two Fingers moved");
-}
-
-- (void)threeFingersMoved:(UIPanGestureRecognizer*)gr{
-    NSLog(@"Three Fingers moved");
+    [self.gain changeHue:vector];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
