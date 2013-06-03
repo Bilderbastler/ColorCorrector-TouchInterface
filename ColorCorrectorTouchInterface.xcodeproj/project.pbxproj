@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A6B9224175CFADB00C87F25 /* ColorComponentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */; };
+		9A6B9229175CFB6000C87F25 /* ColorComponentModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */; };
+		9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */; };
 		9A747DFF17564A9600F0DE24 /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */; };
 		9A747E0117564D0500F0DE24 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */; };
 		9A8B75A9174FB95A001F2489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75A8174FB95A001F2489 /* UIKit.framework */; };
@@ -39,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A6B9222175CFADB00C87F25 /* ColorComponentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorComponentModel.h; sourceTree = "<group>"; };
+		9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModel.m; sourceTree = "<group>"; };
+		9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModelTest.m; sourceTree = "<group>"; };
+		9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTest.m; sourceTree = "<group>"; };
 		9A747DDE17564A5600F0DE24 /* EXPBackwardCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPBackwardCompatibility.h; sourceTree = "<group>"; };
 		9A747DDF17564A5600F0DE24 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
 		9A747DE017564A5600F0DE24 /* EXPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPDefines.h; sourceTree = "<group>"; };
@@ -124,6 +131,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A6B9225175CFAE900C87F25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A6B9222175CFADB00C87F25 /* ColorComponentModel.h */,
+				9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9A6B9226175CFB0200C87F25 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A8B75C0174FB95A001F2489 /* ViewController.h */,
+				9A8B75C1174FB95A001F2489 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9A6B9227175CFB0800C87F25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A8B75C3174FB95A001F2489 /* ViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		9A747DDD17564A1000F0DE24 /* expecta */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,9 +234,9 @@
 			children = (
 				9A8B75B7174FB95A001F2489 /* AppDelegate.h */,
 				9A8B75B8174FB95A001F2489 /* AppDelegate.m */,
-				9A8B75C0174FB95A001F2489 /* ViewController.h */,
-				9A8B75C1174FB95A001F2489 /* ViewController.m */,
-				9A8B75C3174FB95A001F2489 /* ViewController.xib */,
+				9A6B9226175CFB0200C87F25 /* Controller */,
+				9A6B9227175CFB0800C87F25 /* View */,
+				9A6B9225175CFAE900C87F25 /* Model */,
 				9A8B75AF174FB95A001F2489 /* Supporting Files */,
 			);
 			path = ColorCorrectorTouchInterface;
@@ -226,6 +259,8 @@
 		9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */,
+				9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */,
 				9A8B75E3174FC114001F2489 /* ViewControllerTest.m */,
 				9A8B75D3174FB95B001F2489 /* Supporting Files */,
 			);
@@ -355,6 +390,7 @@
 				9A8B75B5174FB95A001F2489 /* main.m in Sources */,
 				9A8B75B9174FB95A001F2489 /* AppDelegate.m in Sources */,
 				9A8B75C2174FB95A001F2489 /* ViewController.m in Sources */,
+				9A6B9224175CFADB00C87F25 /* ColorComponentModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */,
+				9A6B9229175CFB6000C87F25 /* ColorComponentModelTest.m in Sources */,
+				9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

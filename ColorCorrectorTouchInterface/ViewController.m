@@ -21,15 +21,12 @@
     UIPanGestureRecognizer * gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:method];
     gr.minimumNumberOfTouches = numberOfFingers;
     gr.maximumNumberOfTouches = numberOfFingers;
-    [controllField addGestureRecognizer:gr];
-    
-    
+    [controllField addGestureRecognizer:gr];    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
     [self addGestureRecognizrWithHandlerMethod:@selector(oneFingerMoved:) ForNumberOfFingers:1 toView:self.colorField];
     [self addGestureRecognizrWithHandlerMethod:@selector(twoFingersMoved:) ForNumberOfFingers:2 toView:self.colorField];
@@ -47,7 +44,8 @@
 }
 
 - (void)oneFingerMoved:(UIPanGestureRecognizer*)gr{
-    NSLog(@"One Finger moved");
+    CGPoint vector = [gr velocityInView:gr.view];
+    NSLog(@"One Finger moved: x %f, y %f", vector.x, vector.y);
 }
 
 - (void)twoFingersMoved:(UIPanGestureRecognizer*)gr{
