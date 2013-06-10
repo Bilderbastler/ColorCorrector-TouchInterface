@@ -33,7 +33,7 @@
     double  hh, p, q, t, ff;
     long    i;
     
-    if(s <= 0.0) {
+    if(s < 0.0) {
         if(isnan(h)) {   
             _red = v;
             _green = v;
@@ -44,9 +44,10 @@
             _blue = 0.0;
         }
     }else{
+        h = h * 360;
         hh = h;
-        if(hh >= 1.0) hh = 0.0;
-        hh = hh / (1.0/6.0);
+        if(hh >= 360) hh = 0.0;
+        hh = hh / 60;
         i = (long)hh;
         ff = hh - i;
         p = v * (1.0 - s);

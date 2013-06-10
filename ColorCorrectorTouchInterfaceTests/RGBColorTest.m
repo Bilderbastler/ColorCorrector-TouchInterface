@@ -170,6 +170,19 @@
     expect(sut.blue).to.beCloseToWithin(0.0, 0.0001);
 }
 
+- (void)testBlueHSVConvertsToBlueRGB {
+    // given
+    LSVColor* blue = [[LSVColor alloc]init];
+    // when
+    blue.hue = 1.f/3.f; //blue
+    blue.luminance = 1;
+    blue.saturation = 1;
+    [sut setRGBFromLSV:blue];
+    // then
+    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
+    expect(sut.green).to.beCloseToWithin(0.0, 0.0001);
+    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
+}
 - (void)testYellowHSVConvertsYellowRGB {
     // given
     LSVColor* yellow = [[LSVColor alloc]init];
@@ -184,6 +197,32 @@
     expect(sut.blue).to.beCloseToWithin(0.0, 0.0001);
 }
 
+- (void)testMagentaHSVConvertsMagentaRGB {
+    // given
+    LSVColor* magenta = [[LSVColor alloc]init];
+    // when
+    magenta.hue = 1.0/6.0;
+    magenta.luminance = 1.f;
+    magenta.saturation = 1.f;
+    [sut setRGBFromLSV:magenta];
+    // then
+    expect(sut.red).to.beCloseToWithin(1.0, 0.0001);
+    expect(sut.green).to.beCloseToWithin(0.0, 0.0001);
+    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
+}
+- (void)testCyanHSVConvertsCyanRGB {
+    // given
+    LSVColor* cyan = [[LSVColor alloc]init];
+    // when
+    cyan.hue = 3.0/6.0;
+    cyan.luminance = 1.f;
+    cyan.saturation = 1.f;
+    [sut setRGBFromLSV:cyan];
+    // then
+    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
+    expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
+    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
+}
 - (void)testBlackHSVConvertsBlackRGB {
     // given
     LSVColor* black = [[LSVColor alloc]init];
