@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LSVColor.h"
 @interface RGBColor : NSObject
 
+@property (nonatomic) float red;
+@property (nonatomic) float green;
+@property (nonatomic) float blue;
+
+
+-(void)setRGBFromLSV:(LSVColor*)newColor;
 @end

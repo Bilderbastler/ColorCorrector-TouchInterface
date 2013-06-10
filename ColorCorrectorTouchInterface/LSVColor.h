@@ -10,4 +10,8 @@
 
 @interface LSVColor : NSObject
 
+@property (nonatomic) float hue;
+@property (nonatomic) float saturation;
+@property (nonatomic) float luminance;
+
 @end

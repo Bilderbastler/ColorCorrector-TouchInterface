@@ -7,17 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LSVColor.h"
+#import "RGBColor.h"
 
 @interface ColorComponentModel : NSObject
 
-// 
-@property (nonatomic) float hue;
-@property (nonatomic) float saturation;
-@property (nonatomic) float luminance;
-
-@property (nonatomic) float red;
-@property (nonatomic) float green;
-@property (nonatomic) float blue;
+@property (nonatomic, strong) LSVColor* lsvColor;
+@property (nonatomic, strong) RGBColor* rgbColor;
 
 @property (nonatomic) float sensitivityModifier;
 
