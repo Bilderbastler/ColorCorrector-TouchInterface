@@ -18,6 +18,7 @@
         _red = 1.0;
         _green = 1.0;
         _blue = 1.0;
+        
     }
     return self;
 }
@@ -103,5 +104,27 @@
     _blue = MIN(blue, 10);
     _blue = MAX(_blue, 0);
 }
+
+-(BOOL)isEqual:(id)object{
+    if (self == object) {
+        return YES;
+    }
+    if (!object || ! [self isKindOfClass:[object class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToColor:object];
+}
+
+- (BOOL)isEqualToColor:(RGBColor*)aColor {
+    if (self.red == aColor.red &&
+        self.green == aColor.green &&
+        self.blue == aColor.blue) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 
 @end

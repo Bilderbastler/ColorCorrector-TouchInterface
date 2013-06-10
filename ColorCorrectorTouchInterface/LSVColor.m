@@ -34,7 +34,28 @@
 
 -(void)setLuminance:(float)luminance{
     _luminance = MAX(luminance, 0);
-    _luminance = MIN(_luminance, 1);
+    _luminance = MIN(_luminance, 10);
+}
+
+-(BOOL)isEqual:(id)object{
+    if (self == object) {
+        return YES;
+    }
+    if (!object || ! [self isKindOfClass:[object class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToColor:object];
+}
+
+- (BOOL)isEqualToColor:(LSVColor*)aColor {
+    if (self.luminance == aColor.luminance &&
+        self.hue == aColor.hue &&
+        self.saturation == aColor.saturation) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 @end

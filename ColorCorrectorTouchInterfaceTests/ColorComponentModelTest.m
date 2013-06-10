@@ -40,28 +40,35 @@
     sut = [[ColorComponentModel alloc]init];
 }
 
-- (void)testInitialStateISWhite {
+- (void)testInitialStateIsWhite {
     // given
-    
+    LSVColor* white = [[LSVColor alloc]init];
     // when
-    
+    white.luminance = 1.0;
+    white.saturation = 0.0;
     // then
-    expect(sut.red).to.equal(1.0);
-    expect(sut.green).to.equal(1.0);
-    expect(sut.blue).to.equal(1.0);
-    
-    expect(sut.saturation).to.equal(0);
-    expect(sut.luminance).to.equal(1);
+    expect([sut.lsvColor isEqual:white]).to.beTruthy();
+}
+
+- (void)testInitialStateRGBIsWhite {
+    // given
+    RGBColor* white = [[RGBColor alloc]init];
+    // when
+    white.red = 1.0;
+    white.green = 1.0;
+    white.blue = 1.0;
+    // then
+    expect(sut.rgbColor).to.equal(white);
 }
 
 - (void)testChangingSaturation {
     // given
     CGPoint pt = CGPointMake(23, 18);
-    float oldSaturation = sut.saturation;
+    float oldSaturation = sut.lsvColor.saturation;
     // when
     [sut changeHueAndLuminance:pt];
     // then
-    expect(sut.saturation).to.beGreaterThan(0);
+    expect(sut.lsvColor.saturation).to.beGreaterThan(0);
     expect(oldSaturation).to.equal(0);
 }
 
@@ -71,7 +78,7 @@
     // when
     [sut changeHueAndLuminance:pt];
     // then
-    expect(sut.hue).to.equal(0.5);
+    expect(sut.lsvColor.hue).to.equal(0.5);
 }
 - (void)testPurplishHue {
     // given
@@ -79,7 +86,7 @@
     // when
     [sut changeHueAndLuminance:pt];
     // then
-    expect(sut.hue).to.equal(0.25);
+    expect(sut.lsvColor.hue).to.equal(0.25);
 }
 - (void)testGreenishHue {
     // given
@@ -87,7 +94,7 @@
     // when
     [sut changeHueAndLuminance:pt];
     // then
-    expect(sut.hue).to.equal(0.75);
+    expect(sut.lsvColor.hue).to.equal(0.75);
 }
 - (void)testRedishHue {
     // given
@@ -95,89 +102,9 @@
     // when
     [sut changeHueAndLuminance:pt];
     // then
-    expect(sut.hue).to.equal(0.0);
+    expect(sut.lsvColor.hue).to.equal(0.0);
 }
 
-- (void)testHueCannotBeNegative {
-    // given
-    
-    // when
-    sut.hue = -3;
-    // then
-    expect(sut.hue).to.equal(0);
-}
-
-- (void)testHueCanontBeAboveOne {
-    // given
-    
-    // when
-    sut.hue = 5;
-    // then
-    expect(sut.hue).to.equal(1);
-}
-
-- (void)testHueValueCanBeSet {
-    // given
-    float newHue = 0.71;
-    // when
-    sut.hue = newHue;
-    // then
-    expect(sut.hue).to.equal(newHue);
-}
-
-- (void)testRedCannotBeNegative {
-    // given
-    
-    // when
-    sut.red = -1;
-    // then
-    expect(sut.red).to.equal(0);
-}
-
-- (void)testRedCannotBeGreaterThanTen{
-    // given
-    
-    // when
-    sut.red = 11;
-    // then
-    expect(sut.red).to.equal(10);
-}
-
-- (void)testGreenCannotBeNegative {
-    // given
-    
-    // when
-    sut.green = -1;
-    // then
-    expect(sut.green).to.equal(0);
-}
-
-- (void)testGreenCannotBeGreaterThanTen{
-    // given
-    
-    // when
-    sut.green = 11;
-    // then
-    expect(sut.green).to.equal(10);
-}
-
-- (void)testBlueCannotBeNegative {
-    // given
-    
-    // when
-    sut.blue = -1;
-    // then
-    expect(sut.blue).to.equal(0);
-}
-
-- (void)testBlueCannotBeGreaterThanTen{
-    // given
-    
-    // when
-    sut.blue = 11;
-    // then
-    expect(sut.blue).to.equal(10);
-}
 
 @end
 

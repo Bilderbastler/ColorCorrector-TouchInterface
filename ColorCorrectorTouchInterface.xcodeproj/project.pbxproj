@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9A270D5917664D5900AAC504 /* RGBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5817664D5900AAC504 /* RGBColor.m */; };
 		9A270D5C17664D6700AAC504 /* LSVColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5B17664D6700AAC504 /* LSVColor.m */; };
+		9A270D5E1766524500AAC504 /* RGBColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5D1766524500AAC504 /* RGBColorTest.m */; };
+		9A270D6017665D2700AAC504 /* LSVColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5F17665D2700AAC504 /* LSVColorTest.m */; };
 		9A6B9224175CFADB00C87F25 /* ColorComponentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */; };
 		9A6B9229175CFB6000C87F25 /* ColorComponentModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */; };
 		9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */; };
@@ -49,6 +51,8 @@
 		9A270D5817664D5900AAC504 /* RGBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBColor.m; sourceTree = "<group>"; };
 		9A270D5A17664D6700AAC504 /* LSVColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVColor.h; sourceTree = "<group>"; };
 		9A270D5B17664D6700AAC504 /* LSVColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVColor.m; sourceTree = "<group>"; };
+		9A270D5D1766524500AAC504 /* RGBColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBColorTest.m; sourceTree = "<group>"; };
+		9A270D5F17665D2700AAC504 /* LSVColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVColorTest.m; sourceTree = "<group>"; };
 		9A6B9222175CFADB00C87F25 /* ColorComponentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorComponentModel.h; sourceTree = "<group>"; };
 		9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModel.m; sourceTree = "<group>"; };
 		9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModelTest.m; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 		9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A270D5F17665D2700AAC504 /* LSVColorTest.m */,
+				9A270D5D1766524500AAC504 /* RGBColorTest.m */,
 				9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */,
 				9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */,
 				9A8B75E3174FC114001F2489 /* ViewControllerTest.m */,
@@ -417,6 +423,8 @@
 				9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */,
 				9A6B9229175CFB6000C87F25 /* ColorComponentModelTest.m in Sources */,
 				9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */,
+				9A270D5E1766524500AAC504 /* RGBColorTest.m in Sources */,
+				9A270D6017665D2700AAC504 /* LSVColorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
