@@ -85,7 +85,7 @@
     
     ColorComponentModel *colorComponent = [OCMockObject mockForClass: [ColorComponentModel class]];
     id colorMock = colorComponent;
-    [[colorMock expect] changeHue:velocityVektor];
+    [[colorMock expect] changeHueAndLuminance:velocityVektor];
     sut.gain = colorComponent;
     
     // when

@@ -44,7 +44,7 @@
 
 - (void)fingerMoved:(UIPanGestureRecognizer*)gr{
     CGPoint vector = [gr velocityInView:gr.view];
-    [self.gain changeHue:vector];
+    [self.gain changeHueAndLuminance:vector];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{

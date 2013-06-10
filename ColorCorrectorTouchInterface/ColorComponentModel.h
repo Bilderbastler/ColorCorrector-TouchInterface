@@ -10,6 +10,16 @@
 
 @interface ColorComponentModel : NSObject
 
--(void)changeHue:(CGPoint)velocityVector;
+@property (nonatomic) float hue;
+@property (nonatomic) float saturation;
+@property (nonatomic) float luminance;
+
+@property (nonatomic) float red;
+@property (nonatomic) float green;
+@property (nonatomic) float blue;
+
+@property (nonatomic) float sensitivityModifier;
+
+-(void)changeHueAndLuminance:(CGPoint)velocityVector;
 
 @end
