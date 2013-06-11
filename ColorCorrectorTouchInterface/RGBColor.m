@@ -55,37 +55,37 @@
         t = v * (1.0 - (s * (1.0 - ff)));
         
         switch(i) {
-            case 0:
+            case 0: //Red
                 _red = v;
                 _green = t;
                 _blue = p;
                 break;
-            case 1:
+            case 1: //Magenta
                 _red = q;
-                _green = v;
-                _blue = p;
+                _green = p;
+                _blue = v;
                 break;
-            case 2:
+            case 2: //Blue
                 _red = p;
-                _green = v;
-                _blue = t;
+                _green = t;
+                _blue = v;
                 break;
                 
-            case 3:
+            case 3: //Cyan
                 _red = p;
                 _green = q;
                 _blue = v;
                 break;
-            case 4:
+            case 4: //Green
                 _red = t;
-                _green = p;
-                _blue= v;
+                _green = v;
+                _blue= p;
                 break;
-            case 5:
+            case 5: //Yellow
             default:
                 _red = v;
-                _green = p;
-                _blue = q;
+                _green = q;
+                _blue = p;
                 break;
         }
     }
