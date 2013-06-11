@@ -30,8 +30,9 @@
     
     //calculate rgb from new values
     [self.rgbColor setRGBFromLSV:self.lsvColor];
-    // recalulate hsv
     
+    // recalulate hsv because the rgb values are the definite color value
+    [self.lsvColor setLSVFromLRGB:self.rgbColor];
 }
 
 - (void)saturationFromVector:(CGPoint)vector {

@@ -34,10 +34,12 @@
 {
     // test fixture ivars go here
     LSVColor* sut;
+    float range;
     
 }
 
 -(void)setUp{
+    range = 0.0001;
     sut = [[LSVColor alloc] init];
 }
 
@@ -124,5 +126,122 @@
     expect(sut.luminance).to.equal(0);
 }
 
+- (void)testRGBConversionOfWhite {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(0.0, range);
+    expect(sut.saturation).to.beCloseToWithin(0.0, range);
+}
+
+- (void)testRGBConversionOfGrey {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 0.5;
+    aColor.green = 0.5;
+    aColor.blue = 0.5;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(0.0, range);
+    expect(sut.saturation).to.beCloseToWithin(0.0, range);
+    expect(sut.luminance).to.beCloseToWithin(0.5, range);
+}
+
+- (void)testRGBConversionOfBlack {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 0.0;
+    aColor.green = 0.0;
+    aColor.blue = 0.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.luminance).to.beCloseToWithin(0.0, range);
+}
+
+- (void)testRGBConversionOfRed {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 1.0;
+    aColor.green = 0.0;
+    aColor.blue = 0.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(0.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
+
+- (void)testRGBConversionOfGreen {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 0.0;
+    aColor.green = 1.0;
+    aColor.blue = 0.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(2.0/3.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
+- (void)testRGBConversionOfBlue {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 0.0;
+    aColor.green = 0.0;
+    aColor.blue = 1.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(1.0/3.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
+- (void)testRGBConversionOfMagenta {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 1.0;
+    aColor.green = 0.0;
+    aColor.blue = 1.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(1.0/6.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+   
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
+- (void)testRGBConversionOfCyan {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 0.0;
+    aColor.green = 1.0;
+    aColor.blue = 1.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(3.0/6.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
+
+- (void)testRGBConversionOfYellow {
+    // given
+    RGBColor* aColor = [[RGBColor alloc]init];
+    aColor.red = 1.0;
+    aColor.green = 1.0;
+    aColor.blue = 0.0;
+    // when
+    [sut setLSVFromLRGB:aColor];
+    // then
+    expect(sut.hue).to.beCloseToWithin(5.0/6.0, range);
+    expect(sut.saturation).to.beCloseToWithin(1.0, range);
+    expect(sut.luminance).to.beCloseToWithin(1.0, range);
+}
 
 @end

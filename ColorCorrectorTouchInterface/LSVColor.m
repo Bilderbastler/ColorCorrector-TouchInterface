@@ -37,6 +37,52 @@
     _luminance = MIN(_luminance, 10);
 }
 
+-(void)setLSVFromLRGB:(RGBColor *)aColor{
+    double  min, max, delta, localHue;
+    float   r, g, b;
+    
+    r = aColor.red;
+    g = aColor.green;
+    b = aColor.blue;
+    
+    min = MIN(r, g);
+    min = MIN(min, b);
+    
+    max = MAX(r, g);
+    max = MAX(max, b);
+    
+    self.luminance = max;                                
+    delta = max - min;
+    
+    if( max > 0.0 ) {
+        self.saturation = (delta / max);
+    } else {
+        
+        self.saturation = 0.0;
+        self.hue = 0.0;                            
+        return;
+    }
+    if( r >= max ){
+        localHue = ( g - b ) / delta;        // between yellow & magenta
+        localHue = isnan(localHue) ? 0.0 : localHue;
+        
+    }else{
+        if( g >= max ){
+            localHue = 2.0 + ( b - r ) / delta;  // between cyan & yellow
+        }else{
+            localHue = 4.0 + ( r - g ) / delta;  // between magenta & cyan
+        }
+    }
+    localHue *= 60.0;                              // degrees
+    
+    if( localHue <= 0.0 ){
+        localHue += 360.0;
+    }
+    localHue = 360.0 - localHue;
+    self.hue = localHue / 360.0;
+    
+}
+
 -(BOOL)isEqual:(id)object{
     if (self == object) {
         return YES;

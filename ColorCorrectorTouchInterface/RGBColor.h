@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LSVColor.h"
+@class LSVColor;
 @interface RGBColor : NSObject
 
 @property (nonatomic) float red;
