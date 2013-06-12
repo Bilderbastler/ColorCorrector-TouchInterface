@@ -10,6 +10,8 @@
 #import "LSVColor.h"
 #import "RGBColor.h"
 
+NSString *const ColorDidChangeNotification;
+
 @interface ColorComponentModel : NSObject
 
 @property (nonatomic, strong) LSVColor* lsvColor;

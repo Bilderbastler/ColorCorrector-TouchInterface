@@ -8,6 +8,8 @@
 
 #import "ColorComponentModel.h"
 
+NSString *const ColorDidChangeNotification = @"ColorDidChange";
+
 @implementation ColorComponentModel
 
 
@@ -33,6 +35,8 @@
     
     // recalulate hsv because the rgb values are the definite color value
     [self.lsvColor setLSVFromLRGB:self.rgbColor];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification object:self.rgbColor];
 }
 
 - (void)saturationFromVector:(CGPoint)vector {

@@ -17,4 +17,6 @@
 
 
 -(void)setRGBFromLSV:(LSVColor*)newColor;
+
+-(UIColor*)uiColorFromRGB;
 @end

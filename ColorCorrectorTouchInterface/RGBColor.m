@@ -23,6 +23,13 @@
     return self;
 }
 
+-(UIColor *)uiColorFromRGB{
+    return [UIColor colorWithRed:self.red
+                    green:self.green
+                     blue:self.blue
+                        alpha:1.0];
+}
+
 
 -(void)setRGBFromLSV:(LSVColor *)newColor{
     float   h,s,v;
