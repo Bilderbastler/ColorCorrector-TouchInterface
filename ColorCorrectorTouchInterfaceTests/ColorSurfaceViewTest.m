@@ -35,9 +35,7 @@
     // test fixture ivars go here
 }
 
-- (void)testObjectCanBeCreated {
-    // given
-    
+- (void)testObjectCanBeCreated {    
     // when
     ColorSurfaceView* sut = [[ColorSurfaceView alloc]init];
     // then

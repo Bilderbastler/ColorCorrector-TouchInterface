@@ -44,23 +44,16 @@
 }
 
 - (void)testInitialStateISWhite {
-    // given
-    
-    // when
-    
-    // then    
     expect(sut.saturation).to.equal(0);
     expect(sut.luminance).to.equal(1);
     expect(sut.hue).to.equal(0);
 }
 
 - (void)testObjectToEqualSelf {
-    // given
+    // when
     sut.hue = 0.8;
     sut.luminance = 1.3;
-    sut.saturation = 0.2;
-    // when
-    
+    sut.saturation = 0.2;    
     // then
     expect(sut).to.equal(sut);
 }
@@ -71,7 +64,7 @@
     sut.saturation = 0.3;
     sut.luminance = 1.3;
     sut.hue = 0.9;
-    
+
     // when
     eqCol.luminance = sut.luminance;
     eqCol.hue = sut.hue;
@@ -81,20 +74,18 @@
     expect([sut isEqual:eqCol]).to.beTruthy();
 }
 
-- (void)testHueCannotBeNegative {
-    // given
-    
+- (void)testHueCannotBeNegative {    
     // when
     sut.hue = -3;
+    
     // then
     expect(sut.hue).to.equal(0);
 }
 
-- (void)testHueCanontBeAboveOne {
-    // given
-    
+- (void)testHueCanontBeAboveOne {    
     // when
     sut.hue = 5;
+    
     // then
     expect(sut.hue).to.equal(1);
 }
@@ -102,26 +93,26 @@
 - (void)testHueValueCanBeSet {
     // given
     float newHue = 0.71;
+    
     // when
     sut.hue = newHue;
+    
     // then
     expect(sut.hue).to.equal(newHue);
 }
 
-- (void)testLuminanceCanGoToTen {
-    // given
-    
+- (void)testLuminanceCanGoToTen {    
     // when
     sut.luminance = 11;
+    
     // then
     expect(sut.luminance).to.equal(10);
 }
 
 - (void)testLuminanceCannotBeNegative {
-    // given
-    
     // when
     sut.luminance = -3;
+    
     // then
     expect(sut.luminance).to.equal(0);
 }
@@ -129,8 +120,10 @@
 - (void)testRGBConversionOfWhite {
     // given
     RGBColor* aColor = [[RGBColor alloc]init];
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(0.0, range);
     expect(sut.saturation).to.beCloseToWithin(0.0, range);
@@ -142,8 +135,10 @@
     aColor.red = 0.5;
     aColor.green = 0.5;
     aColor.blue = 0.5;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(0.0, range);
     expect(sut.saturation).to.beCloseToWithin(0.0, range);
@@ -156,8 +151,10 @@
     aColor.red = 0.0;
     aColor.green = 0.0;
     aColor.blue = 0.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.luminance).to.beCloseToWithin(0.0, range);
 }
@@ -168,8 +165,10 @@
     aColor.red = 1.0;
     aColor.green = 0.0;
     aColor.blue = 0.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(0.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);
@@ -182,8 +181,10 @@
     aColor.red = 0.0;
     aColor.green = 1.0;
     aColor.blue = 0.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(2.0/3.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);
@@ -195,8 +196,10 @@
     aColor.red = 0.0;
     aColor.green = 0.0;
     aColor.blue = 1.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(1.0/3.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);
@@ -208,8 +211,10 @@
     aColor.red = 1.0;
     aColor.green = 0.0;
     aColor.blue = 1.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(1.0/6.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);
@@ -222,8 +227,10 @@
     aColor.red = 0.0;
     aColor.green = 1.0;
     aColor.blue = 1.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(3.0/6.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);
@@ -236,8 +243,10 @@
     aColor.red = 1.0;
     aColor.green = 1.0;
     aColor.blue = 0.0;
+    
     // when
     [sut setLSVFromLRGB:aColor];
+    
     // then
     expect(sut.hue).to.beCloseToWithin(5.0/6.0, range);
     expect(sut.saturation).to.beCloseToWithin(1.0, range);

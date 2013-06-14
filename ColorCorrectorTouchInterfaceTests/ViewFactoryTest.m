@@ -1,12 +1,14 @@
 //
-//  ColorCorrectorTouchInterface - LuminanceSurfaceViewTest.m
+//  ColorCorrectorTouchInterface - ViewFactoryTest.m
 //  Copyright 2013 Franzi. All rights reserved.
 //
 //  Created by: Franzi
 //
 
     // Class under test
+#import "ViewFactory.h"
 #import "LuminanceSurfaceView.h"
+#import "ColorSurfaceView.h"
 
     // Collaborators
 
@@ -27,19 +29,31 @@
 //#import <OCMockitoIOS/OCMockitoIOS.h>
 
 
-@interface LuminanceSurfaceViewTest : SenTestCase
+@interface ViewFactoryTest : SenTestCase
 @end
 
-@implementation LuminanceSurfaceViewTest
+@implementation ViewFactoryTest
 {
     // test fixture ivars go here
+    ViewFactory* sut;
 }
 
-- (void)testObjectCanBeCreated {    
+-(void)setUp{
+    sut = [[ViewFactory alloc]init];
+}
+
+- (void)testCreatesLuminanceSurface {
     // when
-    LuminanceSurfaceView* sut = [[LuminanceSurfaceView alloc]init];
+    id product = [sut createLuminanceSurface];
     // then
-    expect(sut).notTo.beNil();
+    expect(product).to.beKindOf([LuminanceSurfaceView class]);
+}
+
+- (void)testCreatesColorSurface {
+    // when
+    id product = [sut createColorSurface];
+    // then
+    expect(product).to.beKindOf([ColorSurfaceView class]);
 }
 
 @end
