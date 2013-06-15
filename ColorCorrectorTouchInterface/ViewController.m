@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
 
@@ -21,7 +22,7 @@
     UIPanGestureRecognizer * gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(fingerMoved:)];
     gr.minimumNumberOfTouches = numberOfFingers;
     gr.maximumNumberOfTouches = numberOfFingers;
-    [controllField addGestureRecognizer:gr];    
+    [controllField addGestureRecognizer:gr];
 }
 
 - (void)viewDidLoad

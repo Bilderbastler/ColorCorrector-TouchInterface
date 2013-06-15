@@ -9,7 +9,7 @@
 #import "ColorSurfaceView.h"
 
     // Collaborators
-
+#import <QuartzCore/QuartzCore.h>
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -33,13 +33,29 @@
 @implementation ColorSurfaceViewTest
 {
     // test fixture ivars go here
+    ColorSurfaceView* sut;
+}
+
+
+-(void)setUp{
+    sut = [[ColorSurfaceView alloc]initWithCoder:nil];
 }
 
 - (void)testObjectCanBeCreated {    
-    // when
-    ColorSurfaceView* sut = [[ColorSurfaceView alloc]init];
     // then
     expect(sut).notTo.beNil();
+}
+
+- (void)testHasArrows {        
+    expect(sut.fourWayArrows).notTo.beNil();
+}
+
+- (void)testArrowsAreVisible {
+    // given
+    NSArray* layers = sut.layer.sublayers;
+    id arrowsLayer = sut.fourWayArrows;
+    // then
+    expect(layers).to.contain(arrowsLayer);
 }
 
 @end

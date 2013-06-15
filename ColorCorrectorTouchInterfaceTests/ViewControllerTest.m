@@ -45,6 +45,7 @@
     
     // then
     expect(sut.colorField).notTo.beNil();
+    expect(sut.colorField).to.beKindOf([ColorSurfaceView class]);
 }
 
 
@@ -54,6 +55,7 @@
     
     // then
     expect([sut luminanceField]).notTo.beNil();
+    expect(sut.luminanceField).to.beKindOf([LuminanceSurfaceView class]);
 }
 
 

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ColorSurfaceView : UIView
-
+@property(strong, nonatomic) CALayer* fourWayArrows;
 @end

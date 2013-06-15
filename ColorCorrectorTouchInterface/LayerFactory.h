@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "LuminanceSurfaceView.h"
 #import "ColorSurfaceView.h"
 
-@interface ViewFactory : NSObject
+@interface LayerFactory : NSObject
 
--(LuminanceSurfaceView *)createLuminanceSurface;
--(ColorSurfaceView *)createColorSurface;
+-(CALayer*)createFourDirectionArrows;
+-(CALayer*)createTwoDirectionArrow;
 
 @end

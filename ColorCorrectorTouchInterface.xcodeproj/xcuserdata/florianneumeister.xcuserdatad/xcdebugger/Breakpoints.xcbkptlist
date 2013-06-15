@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ColorCorrectorTouchInterfaceTests/LSVColorTest.m"
-         timestampString = "392661972.564427"
+         timestampString = "393023796.28949"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "146"
-         endingLineNumber = "146"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-testRGBConversionOfGrey"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ColorCorrectorTouchInterfaceTests/LSVColorTest.m"
-         timestampString = "392661974.451333"
+         timestampString = "393023796.28949"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
          landmarkName = "-testRGBConversionOfWhite"
          landmarkType = "5">
       </FileBreakpoint>

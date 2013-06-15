@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorComponentModel.h"
+#import "LuminanceSurfaceView.h"
+#import "ColorSurfaceView.h"
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *colorField;
-@property (weak, nonatomic) IBOutlet UIView *luminanceField;
+@property (weak, nonatomic) IBOutlet ColorSurfaceView *colorField;
+@property (weak, nonatomic) IBOutlet LuminanceSurfaceView *luminanceField;
 
 @property (strong, nonatomic) ColorComponentModel * lift;
 @property (strong, nonatomic) ColorComponentModel * gamma;

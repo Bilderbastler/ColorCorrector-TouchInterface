@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LuminanceSurfaceView : NSObject
+@interface LuminanceSurfaceView : UIView
 
 @end

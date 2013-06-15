@@ -6,10 +6,7 @@
 //
 
     // Class under test
-#import "ViewFactory.h"
-#import "LuminanceSurfaceView.h"
-#import "ColorSurfaceView.h"
-
+#import "LayerFactory.h"
     // Collaborators
 
     // Test support
@@ -29,31 +26,41 @@
 //#import <OCMockitoIOS/OCMockitoIOS.h>
 
 
-@interface ViewFactoryTest : SenTestCase
+@interface LayerFactoryTest : SenTestCase
 @end
 
-@implementation ViewFactoryTest
+@implementation LayerFactoryTest
 {
     // test fixture ivars go here
-    ViewFactory* sut;
+    LayerFactory* sut;
+    CALayer* product;
 }
 
 -(void)setUp{
-    sut = [[ViewFactory alloc]init];
+    sut = [[LayerFactory alloc]init];
 }
 
-- (void)testCreatesLuminanceSurface {
+- (void)testTwoDirectionArrow {
     // when
-    id product = [sut createLuminanceSurface];
+    product = [sut createTwoDirectionArrow];
     // then
-    expect(product).to.beKindOf([LuminanceSurfaceView class]);
+    expect(product).to.beKindOf([CALayer class]);
 }
 
-- (void)testCreatesColorSurface {
+- (void)testTwoArrowsHaveFourLayers {
     // when
-    id product = [sut createColorSurface];
+    product = [sut createTwoDirectionArrow];
     // then
-    expect(product).to.beKindOf([ColorSurfaceView class]);
+    expect(product.sublayers).to.haveCountOf(2);
+}
+
+- (void)testCreatesFourArrowLayer {
+    // given
+    
+    // when
+    product = [sut createFourDirectionArrows];
+    // then
+    expect(product).to.beKindOf([CALayer class]);
 }
 
 @end

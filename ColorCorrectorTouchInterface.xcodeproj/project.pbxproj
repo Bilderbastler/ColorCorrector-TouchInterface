@@ -38,8 +38,10 @@
 		9A8B75D7174FB95B001F2489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B75D5174FB95B001F2489 /* InfoPlist.strings */; };
 		9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B75E3174FC114001F2489 /* ViewControllerTest.m */; };
 		9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */; };
-		9ABA58EB176BD2F300970F68 /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EA176BD2F300970F68 /* ViewFactory.m */; };
-		9ABA58ED176BD35900970F68 /* ViewFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EC176BD35900970F68 /* ViewFactoryTest.m */; };
+		9ABA58EB176BD2F300970F68 /* LayerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EA176BD2F300970F68 /* LayerFactory.m */; };
+		9ABA58ED176BD35900970F68 /* LayerFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */; };
+		9ABA58F2176BD94100970F68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABA58F1176BD94100970F68 /* QuartzCore.framework */; };
+		9ABA58F3176D112700970F68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABA58F1176BD94100970F68 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,9 +128,10 @@
 		9A8B75D6174FB95B001F2489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A8B75E3174FC114001F2489 /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
 		9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
-		9ABA58E9176BD2F300970F68 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
-		9ABA58EA176BD2F300970F68 /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
-		9ABA58EC176BD35900970F68 /* ViewFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactoryTest.m; sourceTree = "<group>"; };
+		9ABA58E9176BD2F300970F68 /* LayerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerFactory.h; sourceTree = "<group>"; };
+		9ABA58EA176BD2F300970F68 /* LayerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerFactory.m; sourceTree = "<group>"; };
+		9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerFactoryTest.m; sourceTree = "<group>"; };
+		9ABA58F1176BD94100970F68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABA58F2176BD94100970F68 /* QuartzCore.framework in Frameworks */,
 				9A8B75A9174FB95A001F2489 /* UIKit.framework in Frameworks */,
 				9A8B75AB174FB95A001F2489 /* Foundation.framework in Frameworks */,
 				9A8B75AD174FB95A001F2489 /* CoreGraphics.framework in Frameworks */,
@@ -146,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABA58F3176D112700970F68 /* QuartzCore.framework in Frameworks */,
 				9A6B9238175D165800C87F25 /* libOCMock.a in Frameworks */,
 				9A8B75CD174FB95B001F2489 /* SenTestingKit.framework in Frameworks */,
 				9A8B75CE174FB95B001F2489 /* UIKit.framework in Frameworks */,
@@ -184,8 +189,8 @@
 		9A6B9227175CFB0800C87F25 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ABA58E9176BD2F300970F68 /* ViewFactory.h */,
-				9ABA58EA176BD2F300970F68 /* ViewFactory.m */,
+				9ABA58E9176BD2F300970F68 /* LayerFactory.h */,
+				9ABA58EA176BD2F300970F68 /* LayerFactory.m */,
 				9A3958DE1769172A00C3AAC2 /* LuminanceSurfaceView.h */,
 				9A3958DF1769172A00C3AAC2 /* LuminanceSurfaceView.m */,
 				9A3958DB1769170800C3AAC2 /* ColorSurfaceView.h */,
@@ -239,6 +244,7 @@
 		9A8B759C174FB95A001F2489 = {
 			isa = PBXGroup;
 			children = (
+				9ABA58F1176BD94100970F68 /* QuartzCore.framework */,
 				9A6B9236175D122300C87F25 /* libOCMock.a */,
 				9A8B75AE174FB95A001F2489 /* ColorCorrectorTouchInterface */,
 				9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */,
@@ -299,7 +305,7 @@
 		9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				9ABA58EC176BD35900970F68 /* ViewFactoryTest.m */,
+				9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */,
 				9A3958E31769187100C3AAC2 /* LuminanceSurfaceViewTest.m */,
 				9A3958E1176917F700C3AAC2 /* ColorSurfaceViewTest.m */,
 				9A270D5F17665D2700AAC504 /* LSVColorTest.m */,
@@ -447,7 +453,7 @@
 				9A270D5C17664D6700AAC504 /* LSVColor.m in Sources */,
 				9A3958DD1769170800C3AAC2 /* ColorSurfaceView.m in Sources */,
 				9A3958E01769172A00C3AAC2 /* LuminanceSurfaceView.m in Sources */,
-				9ABA58EB176BD2F300970F68 /* ViewFactory.m in Sources */,
+				9ABA58EB176BD2F300970F68 /* LayerFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +468,7 @@
 				9A270D6017665D2700AAC504 /* LSVColorTest.m in Sources */,
 				9A3958E2176917F700C3AAC2 /* ColorSurfaceViewTest.m in Sources */,
 				9A3958E41769187100C3AAC2 /* LuminanceSurfaceViewTest.m in Sources */,
-				9ABA58ED176BD35900970F68 /* ViewFactoryTest.m in Sources */,
+				9ABA58ED176BD35900970F68 /* LayerFactoryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
