@@ -12,9 +12,9 @@
 #import "ColorSurfaceView.h"
 
 @interface ViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet ColorSurfaceView *colorField;
 @property (weak, nonatomic) IBOutlet LuminanceSurfaceView *luminanceField;
-
 @property (strong, nonatomic) ColorComponentModel * lift;
 @property (strong, nonatomic) ColorComponentModel * gamma;
 @property (strong, nonatomic) ColorComponentModel * gain;

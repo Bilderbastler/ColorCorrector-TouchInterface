@@ -9,13 +9,7 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController ()
-
-@end
-
-@implementation ViewController{
-    
-}
+@implementation ViewController
 
 - (void)addGestureRecognizrforNumberOfFingers:(int)numberOfFingers toView:(UIView *)controllField
 {

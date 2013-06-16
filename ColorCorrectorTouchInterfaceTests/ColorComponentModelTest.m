@@ -39,6 +39,15 @@
 
 -(void)setUp{
     sut = [[ColorComponentModel alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveNotification:)
+                                                 name:ColorDidChangeNotification
+                                               object:nil];
+}
+
+-(void)tearDown{
+    receivedNotification = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)didReceiveNotification:(NSNotification*)aNotification{
@@ -138,22 +147,27 @@
     expect(ComponentChangeTypeLuminance).notTo.beEmpty();
 }
 
-- (void)testNotificationSendsRGBObject {
+- (void)testNotificationSendsComponentObject {
     // given
     CGPoint pt = CGPointMake(34, 12);
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveNotification:)
-                                                 name:ColorDidChangeNotification
-                                               object:nil];
+    
     // when
     [sut changeHueAndLuminance:pt];
     
     // then
     expect(sut).to.equal(receivedNotification.object);
-    
-    receivedNotification = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-
 }
 
+- (void)testNotificationSendsChangeTypeInDictionary {
+    // given
+    CGPoint pt = CGPointMake(34, 12);
+
+    // when
+    [sut changeHueAndLuminance:pt];
+    
+    // then
+    NSString * val = receivedNotification.userInfo[@"change"];
+
+    expect(val).to.equal(ComponentChangeTypeColor);
+}
 @end

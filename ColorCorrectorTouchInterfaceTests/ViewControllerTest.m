@@ -20,6 +20,7 @@
 // #define EXP_OLD_SYNTAX // enable backward-compatibility
 #define EXP_SHORTHAND
 #import "Expecta.h"
+#import "EXPMatchers+beVerified.h"
 
 // Uncomment the next two lines to use OCMockito for mock objects:
 //#define MOCKITO_SHORTHAND
@@ -59,9 +60,7 @@
 
 - (void)testColorFieldHasGestureRecognizers {
     // given
-    [sut view];
-    // when
-    
+    [sut view];    
     // then
     expect(sut.colorField.gestureRecognizers).to.haveCountOf(3);    
 }
@@ -101,11 +100,13 @@
     // given
     id observedSUT = [OCMockObject partialMockForObject:sut];
     [[observedSUT expect] colorChanged:[OCMArg any]];
-    // when
-    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification];
-    // then
-    [observedSUT verify];
     
+    // when
+    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification object:sut];
+    
+    // then
+    //[observedSUT verify];
+    expect(observedSUT).to.beVerified();
 }
 
 @end

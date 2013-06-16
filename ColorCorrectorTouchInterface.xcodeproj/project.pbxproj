@@ -15,6 +15,7 @@
 		9A3958E01769172A00C3AAC2 /* LuminanceSurfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3958DF1769172A00C3AAC2 /* LuminanceSurfaceView.m */; };
 		9A3958E2176917F700C3AAC2 /* ColorSurfaceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3958E1176917F700C3AAC2 /* ColorSurfaceViewTest.m */; };
 		9A3958E41769187100C3AAC2 /* LuminanceSurfaceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3958E31769187100C3AAC2 /* LuminanceSurfaceViewTest.m */; };
+		9A5F46E7176E439300C072FA /* EXPMatchers+beVerified.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F46E6176E439200C072FA /* EXPMatchers+beVerified.m */; };
 		9A6B9224175CFADB00C87F25 /* ColorComponentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */; };
 		9A6B9229175CFB6000C87F25 /* ColorComponentModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */; };
 		9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */; };
@@ -67,6 +68,8 @@
 		9A3958DF1769172A00C3AAC2 /* LuminanceSurfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuminanceSurfaceView.m; sourceTree = "<group>"; };
 		9A3958E1176917F700C3AAC2 /* ColorSurfaceViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSurfaceViewTest.m; sourceTree = "<group>"; };
 		9A3958E31769187100C3AAC2 /* LuminanceSurfaceViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuminanceSurfaceViewTest.m; sourceTree = "<group>"; };
+		9A5F46E5176E439200C072FA /* EXPMatchers+beVerified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+beVerified.h"; sourceTree = "<group>"; };
+		9A5F46E6176E439200C072FA /* EXPMatchers+beVerified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+beVerified.m"; sourceTree = "<group>"; };
 		9A6B9222175CFADB00C87F25 /* ColorComponentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorComponentModel.h; sourceTree = "<group>"; };
 		9A6B9223175CFADB00C87F25 /* ColorComponentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModel.m; sourceTree = "<group>"; };
 		9A6B9228175CFB6000C87F25 /* ColorComponentModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorComponentModelTest.m; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 		9A747DDD17564A1000F0DE24 /* expecta */ = {
 			isa = PBXGroup;
 			children = (
+				9A5F46E5176E439200C072FA /* EXPMatchers+beVerified.h */,
+				9A5F46E6176E439200C072FA /* EXPMatchers+beVerified.m */,
 				9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */,
 				9A747DDE17564A5600F0DE24 /* EXPBackwardCompatibility.h */,
 				9A747DDF17564A5600F0DE24 /* EXPBlockDefinedMatcher.h */,
@@ -469,6 +474,7 @@
 				9A3958E2176917F700C3AAC2 /* ColorSurfaceViewTest.m in Sources */,
 				9A3958E41769187100C3AAC2 /* LuminanceSurfaceViewTest.m in Sources */,
 				9ABA58ED176BD35900970F68 /* LayerFactoryTest.m in Sources */,
+				9A5F46E7176E439300C072FA /* EXPMatchers+beVerified.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
