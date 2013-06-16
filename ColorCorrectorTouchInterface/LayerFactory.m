@@ -19,13 +19,23 @@
 
 -(CALayer*)createTwoDirectionArrow{
     CALayer* twoArrows = [CALayer layer];
-    twoArrows.bounds = CGRectMake(0, 0, 200, 200);
-    twoArrows.position = CGPointMake(50, 50);
+    twoArrows.bounds = CGRectMake(0, 0, 40, 160);
+    twoArrows.position = CGPointMake(400, 400);
+
     CALayer* topArrow = [self createArrow];
+    float x = twoArrows.bounds.size.width / 2;
+    float topY = twoArrows.bounds.size.height - topArrow.bounds.size.height;
+    topArrow.position = CGPointMake(x, topY);
     
     CALayer* bottomArrow = [self createArrow];
+    float bottomY = bottomArrow.bounds.size.height;
+    [bottomArrow setAffineTransform:CGAffineTransformMakeRotation(M_PI)];
+    bottomArrow.position = CGPointMake(x, bottomY);
+    
     [twoArrows addSublayer:topArrow];
     [twoArrows addSublayer:bottomArrow];
+    
+
     return twoArrows;
 }
 
@@ -39,21 +49,23 @@
 
 - (CAShapeLayer *)createArrowLayer {
     CAShapeLayer *arrowLayer = [CAShapeLayer layer];
-    arrowLayer.bounds = CGRectMake(0, 0, 60, 50);
-    arrowLayer.position = CGPointMake(0, 0);
-//    arrowLayer.anchorPoint = CGPointMake(0.5, 0);
-    arrowLayer.strokeColor = [[UIColor whiteColor] CGColor];
-    arrowLayer.lineJoin = kCALineJoinBevel;
-    arrowLayer.lineWidth = 10;
-    arrowLayer.backgroundColor = [[UIColor redColor]CGColor];
+    arrowLayer.bounds = CGRectMake(0, 0, 40, 40);
+    arrowLayer.position = CGPointMake(20, 20);
+    arrowLayer.anchorPoint = CGPointMake(0.5, 0);
+    arrowLayer.fillColor = [[UIColor whiteColor] CGColor];
     return arrowLayer;
 }
 
 -(CGPathRef)createArrowPath{
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, 0, 0);
-    CGPathAddLineToPoint(path, NULL, 25, 50);
-    CGPathAddLineToPoint(path, NULL, 50, 0);
+    CGPathAddLineToPoint(path, NULL, 15, 40);
+    CGPathAddLineToPoint(path, NULL, 25, 40);
+    CGPathAddLineToPoint(path, NULL, 40, 0);
+    CGPathAddLineToPoint(path, NULL, 30, 0);
+    CGPathAddLineToPoint(path, NULL, 20, 27);
+    CGPathAddLineToPoint(path, NULL, 10, 0);
+    CGPathCloseSubpath(path);
     return path;
 }
 
