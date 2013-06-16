@@ -10,7 +10,10 @@
 #import "LSVColor.h"
 #import "RGBColor.h"
 
-NSString *const ColorDidChangeNotification;
+extern NSString *const ColorDidChangeNotification ;
+extern NSString *const ComponentChangeTypeColor;
+extern NSString *const ComponentChangeTypeLuminance;
+
 
 @interface ColorComponentModel : NSObject
 

@@ -37,6 +37,10 @@
     [self addGestureRecognizrforNumberOfFingers:3 toView:self.luminanceField];
 }
 
+-(void)colorChanged:(NSNotificationCenter *)notification{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

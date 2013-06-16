@@ -48,7 +48,6 @@
     expect(sut.colorField).to.beKindOf([ColorSurfaceView class]);
 }
 
-
 - (void)testluminanceFieldShouldBeConnected {
     // given
     [sut view];
@@ -57,7 +56,6 @@
     expect([sut luminanceField]).notTo.beNil();
     expect(sut.luminanceField).to.beKindOf([LuminanceSurfaceView class]);
 }
-
 
 - (void)testColorFieldHasGestureRecognizers {
     // given
@@ -97,9 +95,17 @@
     expect(gr.maximumNumberOfTouches).to.equal(3);
     expect(^{[colorMock verify];}).notTo.raiseAny();
     [colorMock verify];
-    
-    
 }
 
+- (void)testControllerReceivesColorChangeNotification {
+    // given
+    id observedSUT = [OCMockObject partialMockForObject:sut];
+    [[observedSUT expect] colorChanged:[OCMArg any]];
+    // when
+    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification];
+    // then
+    [observedSUT verify];
+    
+}
 
 @end

@@ -34,7 +34,6 @@
     
     [twoArrows addSublayer:topArrow];
     [twoArrows addSublayer:bottomArrow];
-    
 
     return twoArrows;
 }

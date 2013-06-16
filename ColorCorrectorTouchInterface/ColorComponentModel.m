@@ -9,17 +9,16 @@
 #import "ColorComponentModel.h"
 
 NSString *const ColorDidChangeNotification = @"ColorDidChange";
+NSString *const ComponentChangeTypeColor = @"color";
+NSString *const ComponentChangeTypeLuminance = @"luminance";
 
 @implementation ColorComponentModel
 
-
-- (id)init
-{
+- (id)init{
     self = [super init];
     if (self) {
         self.rgbColor = [[RGBColor alloc]init];
         self.lsvColor = [[LSVColor alloc]init];
-        
         _sensitivityModifier = 10;
     }
     return self;
@@ -36,7 +35,8 @@ NSString *const ColorDidChangeNotification = @"ColorDidChange";
     // recalulate hsv because the rgb values are the definite color value
     [self.lsvColor setLSVFromLRGB:self.rgbColor];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification object:self.rgbColor];
+    NSString* changeType = @"color";
+    [self sendNotificationForChangeType:changeType];
 }
 
 - (void)saturationFromVector:(CGPoint)vector {
@@ -53,6 +53,13 @@ NSString *const ColorDidChangeNotification = @"ColorDidChange";
     hueChange = (hueChange + M_PI) / (2 * M_PI) ; // reduce range of value to 0-1,
     hueChange = fmod(hueChange + 0.5, 1.0);
     self.lsvColor.hue = self.lsvColor.hue + hueChange;
+}
+
+- (void)sendNotificationForChangeType:(NSString *)changeType {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:ColorDidChangeNotification
+                                      object:self
+                                    userInfo:@{@"change": changeType}];
 }
 
 @end

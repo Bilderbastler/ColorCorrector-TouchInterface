@@ -127,6 +127,17 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)testNotificationStringExists {
+    // then
+    expect(ColorDidChangeNotification).notTo.beEmpty();
+}
+
+- (void)testChangeTypeStringsExists {
+    // then
+    expect(ComponentChangeTypeColor).notTo.beEmpty();
+    expect(ComponentChangeTypeLuminance).notTo.beEmpty();
+}
+
 - (void)testNotificationSendsRGBObject {
     // given
     CGPoint pt = CGPointMake(34, 12);
@@ -138,7 +149,7 @@
     [sut changeHueAndLuminance:pt];
     
     // then
-    expect(sut.rgbColor).to.equal(receivedNotification.object);
+    expect(sut).to.equal(receivedNotification.object);
     
     receivedNotification = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];

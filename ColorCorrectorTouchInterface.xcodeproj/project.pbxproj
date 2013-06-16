@@ -189,8 +189,6 @@
 		9A6B9227175CFB0800C87F25 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ABA58E9176BD2F300970F68 /* LayerFactory.h */,
-				9ABA58EA176BD2F300970F68 /* LayerFactory.m */,
 				9A3958DE1769172A00C3AAC2 /* LuminanceSurfaceView.h */,
 				9A3958DF1769172A00C3AAC2 /* LuminanceSurfaceView.m */,
 				9A3958DB1769170800C3AAC2 /* ColorSurfaceView.h */,
@@ -331,6 +329,8 @@
 		9ABA58E8176BCD8700970F68 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9ABA58E9176BD2F300970F68 /* LayerFactory.h */,
+				9ABA58EA176BD2F300970F68 /* LayerFactory.m */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
