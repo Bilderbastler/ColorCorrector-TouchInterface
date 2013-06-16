@@ -22,6 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorChanged:) name:ColorDidChangeNotification object:nil];
+    
     [self addGestureRecognizrforNumberOfFingers:1 toView:self.colorField];
     [self addGestureRecognizrforNumberOfFingers:2 toView:self.colorField];
     [self addGestureRecognizrforNumberOfFingers:3 toView:self.colorField];
@@ -49,5 +52,4 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 @end

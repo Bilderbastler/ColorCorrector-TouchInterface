@@ -158,16 +158,4 @@
     expect(sut).to.equal(receivedNotification.object);
 }
 
-- (void)testNotificationSendsChangeTypeInDictionary {
-    // given
-    CGPoint pt = CGPointMake(34, 12);
-
-    // when
-    [sut changeHueAndLuminance:pt];
-    
-    // then
-    NSString * val = receivedNotification.userInfo[@"change"];
-
-    expect(val).to.equal(ComponentChangeTypeColor);
-}
 @end
