@@ -24,9 +24,8 @@
 #import "Expecta.h"
 
 // Uncomment the next two lines to use OCMockito for mock objects:
-#define MOCKITO_SHORTHAND
-#import <OCMockitoIOS/OCMockitoIOS.h>
-
+//#define MOCKITO_SHORTHAND
+//#import <OCMockitoIOS/OCMockitoIOS.h>
 
 @interface AppDelegateTest : SenTestCase
 @end
@@ -48,7 +47,6 @@
 - (void)testApplicationAfterLaunch {    
     // when
     [sut application: nil didFinishLaunchingWithOptions:nil];
-    
     // then
     expect(sut.viewController.lift).notTo.beNil();
     expect(sut.viewController.gamma).notTo.beNil();

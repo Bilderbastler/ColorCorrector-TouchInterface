@@ -11,13 +11,12 @@
 #import "RGBColor.h"
 
 extern NSString *const ColorDidChangeNotification ;
-extern NSString *const ComponentChangeTypeColor;
-extern NSString *const ComponentChangeTypeLuminance;
+
 
 typedef NS_ENUM(NSInteger, ComponentType) {
-    ComponentTypeLift,
+    ComponentTypeGain,
     ComponentTypeGamma,
-    ComponentTypeGain
+    ComponentTypeLift
 };
 
 @interface ColorComponentModel : NSObject
@@ -28,6 +27,6 @@ typedef NS_ENUM(NSInteger, ComponentType) {
 @property (nonatomic) float sensitivityModifier;
 
 - (id)initWithComponentType:(ComponentType)component;
--(void)changeHueAndLuminance:(CGPoint)velocityVector;
+-(void)changeHueAndSaturation:(CGPoint)velocityVector;
 
 @end

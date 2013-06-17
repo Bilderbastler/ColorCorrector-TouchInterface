@@ -20,5 +20,5 @@
 @property (strong, nonatomic) ColorComponentModel * gain;
 @property (weak, nonatomic) NSNotificationCenter * notificationCenter;
 - (void)fingerMoved:(UIPanGestureRecognizer*)gr;
-- (void)colorChanged:(NSNotificationCenter*)notification;
+- (void)colorModelChanged:(NSNotification*)notification;
 @end

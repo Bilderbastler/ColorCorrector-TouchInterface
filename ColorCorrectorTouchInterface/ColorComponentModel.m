@@ -29,7 +29,7 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
     return self;
 }
 
--(void)changeHueAndLuminance:(CGPoint)velocityVector{
+-(void)changeHueAndSaturation:(CGPoint)velocityVector{
     [self saturationFromVector:velocityVector];
 
     [self hueFromVector:velocityVector];
@@ -59,10 +59,9 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 - (void)sendNotificationForChangeType:(NSString *)changeType {
-    NSDictionary * dict = @{@"change": changeType,
-                            @"component" : [NSNumber numberWithInteger:_component]};
+    NSDictionary * dict = @{@"component" : [NSNumber numberWithInteger:_component]};
     [self.notificationCenter postNotificationName:ColorDidChangeNotification
-                                      object:self
+                                      object:self.rgbColor
                                     userInfo:dict];
 }
 

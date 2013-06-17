@@ -18,9 +18,9 @@
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     
-    self.viewController.lift = [[ColorComponentModel alloc]init];
-    self.viewController.gamma = [[ColorComponentModel alloc]init];
-    self.viewController.gain = [[ColorComponentModel alloc]init];
+    self.viewController.lift = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeLift];
+    self.viewController.gamma = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeGamma];
+    self.viewController.gain = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeGain];
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

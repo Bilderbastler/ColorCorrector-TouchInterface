@@ -85,7 +85,7 @@
     CGPoint pt = CGPointMake(23, 18);
     float oldSaturation = sut.lsvColor.saturation;
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     // then
     expect(sut.lsvColor.saturation).to.beGreaterThan(0);
     expect(oldSaturation).to.equal(0);
@@ -95,7 +95,7 @@
     // given
     CGPoint pt = CGPointMake(0, -3); // 180°
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     // then
     expect(sut.lsvColor.hue).to.equal(0.5);
 }
@@ -103,7 +103,7 @@
     // given
     CGPoint pt = CGPointMake(10, 0); // 90°
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     // then
     expect(sut.lsvColor.hue).to.equal(0.25);
 }
@@ -111,7 +111,7 @@
     // given
     CGPoint pt = CGPointMake(-8, 0); // 270°
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     // then
     expect(sut.lsvColor.hue).to.equal(0.75);
 }
@@ -119,7 +119,7 @@
     // given
     CGPoint pt = CGPointMake(0, 10); // 0°
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     // then
     expect(sut.lsvColor.hue).to.equal(0.0);
 }
@@ -136,7 +136,7 @@
                        name:ColorDidChangeNotification
                      object:nil];
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     
     // then
     expect(receivedNotification).notTo.beNil();
@@ -150,21 +150,15 @@
     expect(ColorDidChangeNotification).notTo.beEmpty();
 }
 
-- (void)testChangeTypeStringsExists {
-    // then
-    expect(ComponentChangeTypeColor).notTo.beEmpty();
-    expect(ComponentChangeTypeLuminance).notTo.beEmpty();
-}
-
 - (void)testNotificationSendsComponentObject {
     // given
     CGPoint pt = CGPointMake(34, 12);
     
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     
     // then
-    expect(sut).to.equal(receivedNotification.object);
+    expect(sut.rgbColor).to.equal(receivedNotification.object);
 }
 
 - (void)testComponentEnumWorks{
@@ -177,11 +171,15 @@
     CGPoint pt = CGPointMake(34, 12);
     
     // when
-    [sut changeHueAndLuminance:pt];
+    [sut changeHueAndSaturation:pt];
     NSNumber * componentType = [receivedNotification.userInfo objectForKey:@"component"];
     
     // then
     expect([componentType integerValue]).to.equal(ComponentTypeGain);
 }
-
+- (void)testEnum {
+    expect(ComponentTypeGain).to.equal(0);
+    expect(ComponentTypeGamma).to.equal(1);
+    expect(ComponentTypeLift).to.equal(2);
+}
 @end
