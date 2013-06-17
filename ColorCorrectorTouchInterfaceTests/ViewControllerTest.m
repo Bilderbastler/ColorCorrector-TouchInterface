@@ -34,10 +34,13 @@
 @implementation ViewControllerTest{
     // test fixture ivars go here
     ViewController* sut;
+    NSNotificationCenter* testCenter;
 }
 
 -(void)setUp{
+    testCenter = [[NSNotificationCenter alloc]init];
     sut = [[ViewController alloc] init];
+    sut.notificationCenter = testCenter;
 }
 
 - (void)testColorFieldShouldBeConnected {
@@ -102,7 +105,8 @@
     [[observedSUT expect] colorChanged:[OCMArg any]];
     
     // when
-    [[NSNotificationCenter defaultCenter] postNotificationName:ColorDidChangeNotification object:sut];
+    [sut view];
+    [testCenter postNotificationName:ColorDidChangeNotification object:sut];
     
     // then
     //[observedSUT verify];

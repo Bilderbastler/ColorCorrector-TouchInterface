@@ -12,11 +12,16 @@ NSString *const ColorDidChangeNotification = @"ColorDidChange";
 NSString *const ComponentChangeTypeColor = @"color";
 NSString *const ComponentChangeTypeLuminance = @"luminance";
 
-@implementation ColorComponentModel
 
-- (id)init{
+@implementation ColorComponentModel{
+    ComponentType _component;
+}
+
+- (id)initWithComponentType:(ComponentType)component{
     self = [super init];
     if (self) {
+        _component = component;
+        self.notificationCenter = [NSNotificationCenter defaultCenter];
         self.rgbColor = [[RGBColor alloc]init];
         self.lsvColor = [[LSVColor alloc]init];
         _sensitivityModifier = 10;
@@ -40,7 +45,6 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 - (void)saturationFromVector:(CGPoint)vector {
-    //calculate saturation
     float sumOfSqr = vector.x * vector.x + vector.y * vector.y;
     float saturationChange = sqrtf(sumOfSqr);
     saturationChange = saturationChange / self.sensitivityModifier;
@@ -48,7 +52,6 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 - (void)hueFromVector:(CGPoint)velocityVector {
-    //calculate hue
     float hueChange = atan2f(velocityVector.x, velocityVector.y);
     hueChange = (hueChange + M_PI) / (2 * M_PI) ; // reduce range of value to 0-1,
     hueChange = fmod(hueChange + 0.5, 1.0);
@@ -56,10 +59,11 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 - (void)sendNotificationForChangeType:(NSString *)changeType {
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter postNotificationName:ColorDidChangeNotification
+    NSDictionary * dict = @{@"change": changeType,
+                            @"component" : [NSNumber numberWithInteger:_component]};
+    [self.notificationCenter postNotificationName:ColorDidChangeNotification
                                       object:self
-                                    userInfo:@{@"change": changeType}];
+                                    userInfo:dict];
 }
 
 @end

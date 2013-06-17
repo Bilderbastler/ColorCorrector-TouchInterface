@@ -34,20 +34,25 @@
     // test fixture ivars go here
     ColorComponentModel* sut;
     NSNotification* receivedNotification;
+    NSNotificationCenter* testCenter;
     
 }
 
 -(void)setUp{
-    sut = [[ColorComponentModel alloc]init];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveNotification:)
-                                                 name:ColorDidChangeNotification
-                                               object:nil];
+    testCenter = [[NSNotificationCenter alloc]init];
+    [testCenter addObserver:self
+                   selector:@selector(didReceiveNotification:)
+                       name:ColorDidChangeNotification
+                     object:nil];
+    sut = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeGain];
+    sut.notificationCenter = testCenter;
 }
 
 -(void)tearDown{
     receivedNotification = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    sut = nil;
+    [testCenter removeObserver:self];
+    testCenter = nil;
 }
 
 -(void)didReceiveNotification:(NSNotification*)aNotification{
@@ -119,13 +124,17 @@
     expect(sut.lsvColor.hue).to.equal(0.0);
 }
 
+- (void)testHasNotificationCenter {
+    expect(sut.notificationCenter).notTo.beNil();
+}
+
 - (void)testSendsNotificationAfterColorChange {
     // given
     CGPoint pt = CGPointMake(34, 12);
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveNotification:)
-                                                 name:ColorDidChangeNotification
-                                               object:nil];
+    [testCenter addObserver:self
+                   selector:@selector(didReceiveNotification:)
+                       name:ColorDidChangeNotification
+                     object:nil];
     // when
     [sut changeHueAndLuminance:pt];
     
@@ -156,6 +165,23 @@
     
     // then
     expect(sut).to.equal(receivedNotification.object);
+}
+
+- (void)testComponentEnumWorks{
+    // then
+    expect(ComponentTypeGain).notTo.equal(ComponentTypeGamma);
+}
+
+- (void)testNotficationContainsComponentType {
+    // given
+    CGPoint pt = CGPointMake(34, 12);
+    
+    // when
+    [sut changeHueAndLuminance:pt];
+    NSNumber * componentType = [receivedNotification.userInfo objectForKey:@"component"];
+    
+    // then
+    expect([componentType integerValue]).to.equal(ComponentTypeGain);
 }
 
 @end

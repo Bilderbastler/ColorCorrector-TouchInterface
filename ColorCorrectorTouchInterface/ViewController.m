@@ -11,6 +11,8 @@
 
 @implementation ViewController
 
+@synthesize notificationCenter;
+
 - (void)addGestureRecognizrforNumberOfFingers:(int)numberOfFingers toView:(UIView *)controllField
 {
     UIPanGestureRecognizer * gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(fingerMoved:)];
@@ -23,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorChanged:) name:ColorDidChangeNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(colorChanged:) name:ColorDidChangeNotification object:nil];
     
     [self addGestureRecognizrforNumberOfFingers:1 toView:self.colorField];
     [self addGestureRecognizrforNumberOfFingers:2 toView:self.colorField];
@@ -51,5 +53,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc{
+    [self.notificationCenter removeObserver:self];
 }
 @end
