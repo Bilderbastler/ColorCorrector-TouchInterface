@@ -23,9 +23,18 @@
     UIColor* _liftColor;
     UIColor* _gammaColor;
     UIColor* _gainColor;
+    NSNotificationCenter* _notificationCenter;
 }
 
-@synthesize notificationCenter;
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil notificationCenter:(NSNotificationCenter*)notificationCenter{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _notificationCenter = notificationCenter;
+    }
+    return self;
+    
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -33,7 +42,7 @@
     _activeColorComponent = ComponentTypeGain;
     _activeColorComponent = ComponentTypeGain;
     
-    [self.notificationCenter addObserver:self selector:@selector(colorModelChanged:) name:ColorDidChangeNotification object:nil];
+    [_notificationCenter addObserver:self selector:@selector(aColorModelHasChanged:) name:ColorDidChangeNotification object:nil];
     
     [self setupGestureRecognizers];
     [self setupColorProperties];
@@ -68,8 +77,9 @@
 
 -(void)aColorModelHasChanged:(NSNotification *)notification{
     RGBColor* newColorValues = notification.object;
+    assert([newColorValues isKindOfClass:[RGBColor class]]);
     NSInteger component = [[notification.userInfo objectForKey:@"component"] integerValue];
-    UIColor* newColor = [self createColorFromColorValues:newColorValues];
+    UIColor* newColor = [newColorValues uiColorFromRGB];
     switch (component) {
         case ComponentTypeGain:
             _gainColor = newColor;
@@ -87,19 +97,6 @@
     }
 }
 
--(UIColor*)createColorFromColorValues:(RGBColor*)colorValue{
-    float red, green, blue, max;
-    red = colorValue.red;
-    green = colorValue.green;
-    blue = colorValue.blue;
-    max = MAX(red, MAX(green, blue));
-    UIColor* newColor =[UIColor colorWithRed:red / max
-                                       green:green / max
-                                        blue:blue / max
-                                       alpha:1.0];
-    return newColor;
-}
-
 - (void)fingerMoved:(UIPanGestureRecognizer*)gr{
     CGPoint vector = [gr velocityInView:gr.view];
     switch (gr.numberOfTouches) {
@@ -113,7 +110,6 @@
             [self.lift changeHueAndSaturation:vector];
             break;
     }
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
@@ -121,7 +117,7 @@
 }
 
 - (void)dealloc{
-    [self.notificationCenter removeObserver:self];
+    [_notificationCenter removeObserver:self];
 }
 
 

@@ -38,8 +38,7 @@
 
 -(void)setUp{
     testCenter = [[NSNotificationCenter alloc]init];
-    sut = [[ViewController alloc] init];
-    sut.notificationCenter = testCenter;
+    sut = [[ViewController alloc] initWithNibName:nil bundle:nil notificationCenter:testCenter];
 }
 
 - (void)testColorFieldShouldBeConnected {
@@ -100,7 +99,13 @@
 - (void)testControllerReceivesColorChangeNotification {
     // given
     id observedSUT = [OCMockObject partialMockForObject:sut];
-    [[observedSUT expect] aColorModelHasChanged:[OCMArg any]];
+    [[observedSUT expect] aColorModelHasChanged:[OCMArg checkWithBlock:^BOOL(id obj) {
+        if ([obj isKindOfClass:[NSNotification class]]) {
+            return YES;
+        }else{
+            return NO;
+        }
+    }]];
     
     // when
     [sut view];
@@ -125,7 +130,7 @@
     expect(sut.colorField.backgroundColor).toNot.equal(originalBG);
 }
 
-- (void)testBackgroundColorForLiftChanges {
+- (void)testBackgroundColorForLiftDoesNotChangeWhenInGainState {
     // given
     ColorSurfaceView* stubView = [[ColorSurfaceView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     sut.colorField = stubView;
@@ -136,7 +141,7 @@
     [self simulateChangeOfModelComponent:ComponentTypeLift WithRed:2.0 Green:1 Blue:1];
     
     // then
-    expect(sut.colorField.backgroundColor).toNot.equal(originalColor);
+    expect(sut.colorField.backgroundColor).to.equal(originalColor);
 }
 
 #pragma mark Helper Methods

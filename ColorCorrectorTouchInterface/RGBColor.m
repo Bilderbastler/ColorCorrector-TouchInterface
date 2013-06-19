@@ -7,8 +7,7 @@
 //  The RGBColor Class represents a color in Red, Green and Blue
 //  Channels. The normal range for this channels is betweet 0 and 1
 //  and a maximum value of 10.
-//  It can convert it's data to other color representations
-//  like LSVColor or UIColor
+//  It handles conversion from LSVColor and to UIColor
 
 #import "RGBColor.h"
 
@@ -28,12 +27,13 @@
 }
 
 -(UIColor *)uiColorFromRGB{
-    return [UIColor colorWithRed:self.red
-                    green:self.green
-                     blue:self.blue
-                        alpha:1.0];
+    float max = MAX(self.red, MAX(self.green, self.blue));
+    UIColor* newColor =[UIColor colorWithRed:self.red / max
+                                       green:self.green / max
+                                        blue:self.blue / max
+                                       alpha:1.0];
+    return newColor;
 }
-
 
 -(void)setRGBFromLSV:(LSVColor *)newColor{
     float   h,s,v;

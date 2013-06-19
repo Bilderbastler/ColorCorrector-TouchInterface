@@ -15,7 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
+    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil notificationCenter:notificationCenter] ;
     
     self.viewController.lift = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeLift];
     self.viewController.gamma = [[ColorComponentModel alloc]initWithComponentType:ComponentTypeGamma];

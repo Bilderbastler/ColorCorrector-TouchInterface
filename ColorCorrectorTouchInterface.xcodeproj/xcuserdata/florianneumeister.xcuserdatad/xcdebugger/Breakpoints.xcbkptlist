@@ -33,13 +33,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ColorCorrectorTouchInterface/ViewController.m"
-         timestampString = "393335665.798617"
+         filePath = "ColorCorrectorTouchInterface/ColorComponentModel.m"
+         timestampString = "393339145.983993"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
-         landmarkName = "-fingerMoved:"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "-changeHueAndSaturation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +47,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ColorCorrectorTouchInterface/ColorComponentModel.m"
-         timestampString = "393333357.324815"
+         timestampString = "393339163.947208"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
-         landmarkName = "-changeHueAndSaturation:"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "-saturationFromVector:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ColorCorrectorTouchInterface/ViewController.m"
+         timestampString = "393342507.276425"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
+         landmarkName = "-aColorModelHasChanged:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
