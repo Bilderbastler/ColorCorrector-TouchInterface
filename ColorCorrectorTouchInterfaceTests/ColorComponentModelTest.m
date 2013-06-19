@@ -20,11 +20,6 @@
 #define EXP_SHORTHAND
 #import "Expecta.h"
 
-// Uncomment the next two lines to use OCMockito for mock objects:
-#define MOCKITO_SHORTHAND
-#import <OCMockitoIOS/OCMockitoIOS.h>
-
-
 @interface ColorComponentModelTest : SenTestCase
 @end
 

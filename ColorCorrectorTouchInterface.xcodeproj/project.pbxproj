@@ -21,7 +21,6 @@
 		9A6B922B175CFC5E00C87F25 /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B922A175CFC5E00C87F25 /* AppDelegateTest.m */; };
 		9A6B9238175D165800C87F25 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6B9236175D122300C87F25 /* libOCMock.a */; };
 		9A747DFF17564A9600F0DE24 /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */; };
-		9A747E0117564D0500F0DE24 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */; };
 		9A8B75A9174FB95A001F2489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75A8174FB95A001F2489 /* UIKit.framework */; };
 		9A8B75AB174FB95A001F2489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AA174FB95A001F2489 /* Foundation.framework */; };
 		9A8B75AD174FB95A001F2489 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AC174FB95A001F2489 /* CoreGraphics.framework */; };
@@ -38,7 +37,6 @@
 		9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75AA174FB95A001F2489 /* Foundation.framework */; };
 		9A8B75D7174FB95B001F2489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B75D5174FB95B001F2489 /* InfoPlist.strings */; };
 		9A8B75E4174FC114001F2489 /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B75E3174FC114001F2489 /* ViewControllerTest.m */; };
-		9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */; };
 		9ABA58EB176BD2F300970F68 /* LayerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EA176BD2F300970F68 /* LayerFactory.m */; };
 		9ABA58ED176BD35900970F68 /* LayerFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */; };
 		9ABA58F2176BD94100970F68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABA58F1176BD94100970F68 /* QuartzCore.framework */; };
@@ -108,7 +106,6 @@
 		9A747DFC17564A5600F0DE24 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Expecta.h"; sourceTree = "<group>"; };
 		9A747DFD17564A5600F0DE24 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Expecta.h"; sourceTree = "<group>"; };
 		9A747DFE17564A9600F0DE24 /* libExpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libExpecta-ios-universal.a"; sourceTree = "<group>"; };
-		9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		9A8B75A5174FB95A001F2489 /* ColorCorrectorTouchInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorCorrectorTouchInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8B75A8174FB95A001F2489 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A8B75AA174FB95A001F2489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,7 +127,6 @@
 		9A8B75D4174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorCorrectorTouchInterfaceTests-Info.plist"; sourceTree = "<group>"; };
 		9A8B75D6174FB95B001F2489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A8B75E3174FC114001F2489 /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
-		9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
 		9ABA58E9176BD2F300970F68 /* LayerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerFactory.h; sourceTree = "<group>"; };
 		9ABA58EA176BD2F300970F68 /* LayerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerFactory.m; sourceTree = "<group>"; };
 		9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerFactoryTest.m; sourceTree = "<group>"; };
@@ -158,9 +154,7 @@
 				9A8B75CD174FB95B001F2489 /* SenTestingKit.framework in Frameworks */,
 				9A8B75CE174FB95B001F2489 /* UIKit.framework in Frameworks */,
 				9A8B75CF174FB95B001F2489 /* Foundation.framework in Frameworks */,
-				9A8B75EC174FC1F8001F2489 /* OCMockitoIOS.framework in Frameworks */,
 				9A747DFF17564A9600F0DE24 /* libExpecta-ios-universal.a in Frameworks */,
-				9A747E0117564D0500F0DE24 /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +262,6 @@
 		9A8B75A7174FB95A001F2489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A747E0017564D0500F0DE24 /* OCHamcrestIOS.framework */,
-				9A8B75EB174FC1F8001F2489 /* OCMockitoIOS.framework */,
 				9A8B75A8174FB95A001F2489 /* UIKit.framework */,
 				9A8B75AA174FB95A001F2489 /* Foundation.framework */,
 				9A8B75AC174FB95A001F2489 /* CoreGraphics.framework */,
