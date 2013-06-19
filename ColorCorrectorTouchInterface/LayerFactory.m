@@ -2,12 +2,10 @@
 //  ViewFactory.m
 //  ColorCorrectorTouchInterface
 //
-//  Creates and builds the Luminance and Color Surface Views with it's ui
-//  components
-//
 //  Created by Franzi on 15.06.13.
-//  Copyright (c) 2013 Franzi. All rights reserved.
 //
+//  Creates the Core Animation Layers for
+//  the Luminance and Color Surface Widgets
 
 #import "LayerFactory.h"
 
@@ -21,21 +19,26 @@
     CALayer* twoArrows = [CALayer layer];
     twoArrows.bounds = CGRectMake(0, 0, 40, 160);
     twoArrows.position = CGPointMake(400, 400);
+    [self addTopArrorToALayer:twoArrows];
+    [self addBottomArrowToALayer:twoArrows];
+    return twoArrows;
+}
 
+- (void)addTopArrorToALayer:(CALayer *)holderLayer {
     CALayer* topArrow = [self createArrow];
-    float x = twoArrows.bounds.size.width / 2;
-    float topY = twoArrows.bounds.size.height - topArrow.bounds.size.height;
+    float x = holderLayer.bounds.size.width / 2;
+    float topY = holderLayer.bounds.size.height - topArrow.bounds.size.height;
     topArrow.position = CGPointMake(x, topY);
-    
+    [holderLayer addSublayer:topArrow];
+}
+
+- (void)addBottomArrowToALayer:(CALayer *)holderLayer {
     CALayer* bottomArrow = [self createArrow];
+    float x = holderLayer.bounds.size.width / 2;
     float bottomY = bottomArrow.bounds.size.height;
     [bottomArrow setAffineTransform:CGAffineTransformMakeRotation(M_PI)];
     bottomArrow.position = CGPointMake(x, bottomY);
-    
-    [twoArrows addSublayer:topArrow];
-    [twoArrows addSublayer:bottomArrow];
-
-    return twoArrows;
+    [holderLayer addSublayer:bottomArrow];
 }
 
 -(CALayer*)createArrow{

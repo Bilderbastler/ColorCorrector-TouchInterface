@@ -3,7 +3,10 @@
 //  ColorCorrectorTouchInterface
 //
 //  Created by Franzi on 03.06.13.
-//  Copyright (c) 2013 Franzi. All rights reserved.
+//
+//  The ColorComponentModel represents a Component of a 3-Way Color
+//  Correction Filter (Lift, Gamma or Gain). It translates the velocity
+//  of a touch swipe into a change of hue, saturation or luminance of a color.
 //
 
 #import "ColorComponentModel.h"
@@ -30,32 +33,34 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 -(void)changeHueAndSaturation:(CGPoint)velocityVector{
-    [self saturationFromVector:velocityVector];
-
-    [self hueFromVector:velocityVector];
+    //update lsv values
+    self.lsvColor.saturation = [self saturationFromVector:velocityVector];
+    self.lsvColor.hue = [self hueFromVector:velocityVector];
     
-    //calculate rgb from new values
+    //calculate rgb from new lsv values
     [self.rgbColor setRGBFromLSV:self.lsvColor];
     
-    // recalulate hsv because the rgb values are the definite color value
+    // than recalulate lsv because the rgb values are the definite reference values
+    // so we can only allow conversion ambiguities in the lsv version
     [self.lsvColor setLSVFromLRGB:self.rgbColor];
     
-    NSString* changeType = @"color";
-    [self sendNotificationForChangeType:changeType];
+    [self sendNotificationForChangeType:ComponentChangeTypeColor];
 }
 
-- (void)saturationFromVector:(CGPoint)vector {
+- (float)saturationFromVector:(CGPoint)vector {
     float sumOfSqr = vector.x * vector.x + vector.y * vector.y;
     float saturationChange = sqrtf(sumOfSqr);
     saturationChange = saturationChange / self.sensitivityModifier;
-    self.lsvColor.saturation = self.lsvColor.saturation + saturationChange;
+    float saturation = self.lsvColor.saturation + saturationChange;
+    return saturation;
 }
 
-- (void)hueFromVector:(CGPoint)velocityVector {
+- (float)hueFromVector:(CGPoint)velocityVector {
     float hueChange = atan2f(velocityVector.x, velocityVector.y);
     hueChange = (hueChange + M_PI) / (2 * M_PI) ; // reduce range of value to 0-1,
     hueChange = fmod(hueChange + 0.5, 1.0);
-    self.lsvColor.hue = self.lsvColor.hue + hueChange;
+    float hue = self.lsvColor.hue + hueChange;
+    return hue;
 }
 
 - (void)sendNotificationForChangeType:(NSString *)changeType {

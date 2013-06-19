@@ -3,8 +3,12 @@
 //  ColorCorrectorTouchInterface
 //
 //  Created by Franzi on 10.06.13.
-//  Copyright (c) 2013 Franzi. All rights reserved.
 //
+//  The RGBColor Class represents a color in Red, Green and Blue
+//  Channels. The normal range for this channels is betweet 0 and 1
+//  and a maximum value of 10.
+//  It can convert it's data to other color representations
+//  like LSVColor or UIColor
 
 #import "RGBColor.h"
 

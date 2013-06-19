@@ -1,6 +1,5 @@
 //
 //  ColorCorrectorTouchInterface - ViewControllerTest.m
-//  Copyright 2013 Franzi. All rights reserved.
 //
 //  Created by: Franzi
 //
@@ -101,7 +100,7 @@
 - (void)testControllerReceivesColorChangeNotification {
     // given
     id observedSUT = [OCMockObject partialMockForObject:sut];
-    [[observedSUT expect] colorModelChanged:[OCMArg any]];
+    [[observedSUT expect] aColorModelHasChanged:[OCMArg any]];
     
     // when
     [sut view];
@@ -156,8 +155,11 @@
     newColor.red = red;
     newColor.green = green;
     newColor.blue = blue;
-    NSNotification* notification = [NSNotification notificationWithName:ColorDidChangeNotification object:newColor userInfo:@{@"component": [NSNumber numberWithInteger:comp]}];
-    [sut colorModelChanged:notification];
+    NSDictionary * infoDictionary = @{@"component": [NSNumber numberWithInteger:comp]};
+    NSNotification* notification = [NSNotification notificationWithName:ColorDidChangeNotification
+                                                                 object:newColor
+                                                               userInfo:infoDictionary];
+    [sut aColorModelHasChanged:notification];
 }
 
 -(ColorSurfaceView*)createMockSurfaceView{

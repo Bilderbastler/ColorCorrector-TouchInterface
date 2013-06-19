@@ -1,6 +1,5 @@
 //
 //  ColorCorrectorTouchInterface - LuminanceSurfaceViewTest.m
-//  Copyright 2013 Franzi. All rights reserved.
 //
 //  Created by: Franzi
 //

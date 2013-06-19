@@ -3,8 +3,13 @@
 //  ColorCorrectorTouchInterface
 //
 //  Created by Franzi on 24.05.13.
-//  Copyright (c) 2013 Franzi. All rights reserved.
 //
+//  This ViewController translates touch events to the model and
+//  translates changes in the three component models to the view.
+//  It stores the background colors of both the luminance and color
+//  widget for their three states (lift, gamma and gain)
+
+
 
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -21,6 +26,7 @@
 }
 
 @synthesize notificationCenter;
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -60,7 +66,7 @@
     _gainColor = self.colorField.backgroundColor;
 }
 
--(void)colorModelChanged:(NSNotification *)notification{
+-(void)aColorModelHasChanged:(NSNotification *)notification{
     RGBColor* newColorValues = notification.object;
     NSInteger component = [[notification.userInfo objectForKey:@"component"] integerValue];
     UIColor* newColor = [self createColorFromColorValues:newColorValues];
