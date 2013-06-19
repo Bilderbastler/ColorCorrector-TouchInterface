@@ -27,7 +27,7 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
         self.notificationCenter = [NSNotificationCenter defaultCenter];
         self.rgbColor = [[RGBColor alloc]init];
         self.lsvColor = [[LSVColor alloc]init];
-        _sensitivityModifier = 10;
+        _sensitivityModifier = 100000;
     }
     return self;
 }
