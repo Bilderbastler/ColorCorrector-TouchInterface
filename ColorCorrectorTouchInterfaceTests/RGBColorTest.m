@@ -246,4 +246,50 @@
     expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
     expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
 }
+
+- (void)testMixGreenWithMagenta {
+    // given
+    RGBColor* whiteColor = sut;
+    RGBColor* redColor = [[RGBColor alloc] init];
+    redColor.green = 0;
+    redColor.blue = 0;
+    RGBColor* magentaColor = [[RGBColor alloc]init];
+    magentaColor.red = 0;
+    // when
+    [redColor blendWithColor:magentaColor mix:1.0];
+    // then
+    expect(redColor.red).to.equal(whiteColor.red);
+    expect(redColor.green).to.equal(whiteColor.green);
+    expect(redColor.blue).to.equal(whiteColor.blue);
+}
+
+- (void)testMixingTheSameColors {
+    // given
+    RGBColor* otherWhiteColor = [[RGBColor alloc]init];
+    // when
+    [sut blendWithColor:otherWhiteColor mix:1.0];
+    // then
+    expect(sut.red).to.equal(otherWhiteColor.red *2);
+    expect(sut.green).to.equal(otherWhiteColor.green * 2);
+    expect(sut.blue).to.equal(otherWhiteColor.blue *2);
+}
+
+- (void)testCopyResultInAnotherObject {
+    // when
+    RGBColor* copy = [sut copy];
+    // then
+    expect(sut).notTo.beIdenticalTo(copy);
+}
+
+- (void)testCopyResultsInEqualColor {
+    // given
+    sut.red = .4;
+    sut.green = 1.9;
+    sut.blue = 0;
+    // when
+    RGBColor* copy = [sut copy];
+    // then
+    expect(sut).to.equal(copy);
+}
+
 @end

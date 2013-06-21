@@ -11,6 +11,8 @@
 
 #import "RGBColor.h"
 
+static float maximumValue = 10;
+
 @implementation RGBColor
 
 
@@ -24,6 +26,13 @@
         
     }
     return self;
+}
+
+-(void)blendWithColor:(RGBColor *)otherColor mix:(float)strength{
+    _red = MIN(_red + (otherColor.red * strength), maximumValue);
+    _green = MIN(_green + (otherColor.green * strength), maximumValue);
+    _blue = MIN(_blue + (otherColor.blue * strength), maximumValue);
+    
 }
 
 -(UIColor *)uiColorFromRGB{
@@ -103,18 +112,26 @@
 }
 
 -(void)setRed:(float)red{
-    _red = MIN(red, 10);
+    _red = MIN(red, maximumValue);
     _red = MAX(_red, 0);
 }
 
 -(void)setGreen:(float)green{
-    _green = MIN(green, 10);
+    _green = MIN(green, maximumValue);
     _green = MAX(_green, 0);
 }
 
 -(void)setBlue:(float)blue{
-    _blue = MIN(blue, 10);
+    _blue = MIN(blue, maximumValue);
     _blue = MAX(_blue, 0);
+}
+
+-(id)copyWithZone:(NSZone *)zone{
+    RGBColor *copy = [[RGBColor allocWithZone:zone]init];
+    copy.red = _red;
+    copy.green = _green;
+    copy.blue = _blue;
+    return copy;
 }
 
 -(BOOL)isEqual:(id)object{

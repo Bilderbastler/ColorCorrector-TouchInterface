@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "LSVColor.h"
 @class LSVColor;
-@interface RGBColor : NSObject
+@interface RGBColor : NSObject <NSCopying>
 
 @property (nonatomic) float red;
 @property (nonatomic) float green;
@@ -16,5 +16,6 @@
 
 
 -(void)setRGBFromLSV:(LSVColor*)newColor;
+-(void)blendWithColor:(RGBColor*)otherColor mix:(float)strength;
 -(UIColor*)uiColorFromRGB;
 @end

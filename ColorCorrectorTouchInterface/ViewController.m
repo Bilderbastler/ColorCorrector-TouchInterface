@@ -33,7 +33,6 @@
         _notificationCenter = notificationCenter;
     }
     return self;
-    
 }
 
 - (void)viewDidLoad{
