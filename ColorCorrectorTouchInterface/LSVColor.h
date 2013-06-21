@@ -16,5 +16,4 @@
 @property (nonatomic) float saturation;
 @property (nonatomic) float luminance;
 
--(void)setLSVFromLRGB:(RGBColor*)aColor;
 @end

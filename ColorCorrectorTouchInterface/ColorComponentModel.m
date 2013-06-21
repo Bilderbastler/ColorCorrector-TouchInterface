@@ -10,6 +10,7 @@
 //
 
 #import "ColorComponentModel.h"
+#import "LSVToRGBConverter.h"
 
 NSString *const ColorDidChangeNotification = @"ColorDidChange";
 NSString *const ComponentChangeTypeColor = @"color";
@@ -26,40 +27,36 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
         _component = component;
         self.notificationCenter = [NSNotificationCenter defaultCenter];
         self.rgbColor = [[RGBColor alloc]init];
-        self.lsvColor = [[LSVColor alloc]init];
-        _sensitivityModifier = 10;
+        _sensitivityModifier = 0.05;
     }
     return self;
 }
 
 -(void)changeHueAndSaturation:(CGPoint)velocityVector{
-    //update lsv values
-    self.lsvColor.saturation = [self saturationFromVector:velocityVector];
-    self.lsvColor.hue = [self hueFromVector:velocityVector];
-    
-    //calculate rgb from new lsv values
-    [self.rgbColor setRGBFromLSV:self.lsvColor];
-    
-    // than recalulate lsv because the rgb values are the definite reference values
-    // so we can only allow conversion ambiguities in the lsv version
-    [self.lsvColor setLSVFromLRGB:self.rgbColor];
-    
+    RGBColor *colorOffset = [self makeColorFromVektor:velocityVector];
+    [self.rgbColor blendWithColor:colorOffset mix:self.sensitivityModifier];
     [self sendNotificationForChangeType:ComponentChangeTypeColor];
+}
+
+- (RGBColor *)makeColorFromVektor:(CGPoint)velocityVector {
+    LSVColor* colorFromVector = [[LSVColor alloc]init];
+    colorFromVector.saturation = [self saturationFromVector:velocityVector];
+    colorFromVector.hue = [self hueFromVector:velocityVector];
+    RGBColor* colorOffset = [LSVToRGBConverter convertColor:colorFromVector];
+    return colorOffset;
 }
 
 - (float)saturationFromVector:(CGPoint)vector {
     float sumOfSqr = vector.x * vector.x + vector.y * vector.y;
-    float saturationChange = sqrtf(sumOfSqr);
-    saturationChange = saturationChange / self.sensitivityModifier;
-    float saturation = self.lsvColor.saturation + saturationChange;
+    float saturation = sqrtf(sumOfSqr);
+    saturation = saturation / self.sensitivityModifier;
     return saturation;
 }
 
 - (float)hueFromVector:(CGPoint)velocityVector {
-    float hueChange = atan2f(velocityVector.x, velocityVector.y);
-    hueChange = (hueChange + M_PI) / (2 * M_PI) ; // reduce range of value to 0-1,
-    hueChange = fmod(hueChange + 0.5, 1.0);
-    float hue = self.lsvColor.hue + hueChange;
+    float hue = atan2f(velocityVector.x, velocityVector.y);
+    hue = (hue + M_PI) / (2 * M_PI) ; // reduce range of value to 0-1,
+    hue = fmod(hue + 0.5, 1.0);
     return hue;
 }
 

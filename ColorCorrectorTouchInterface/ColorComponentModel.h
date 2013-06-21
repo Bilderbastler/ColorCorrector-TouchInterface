@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, ComponentType) {
 
 @interface ColorComponentModel : NSObject
 
-@property (nonatomic, strong) LSVColor* lsvColor;
 @property (nonatomic, strong) RGBColor* rgbColor;
 @property (nonatomic, weak) NSNotificationCenter* notificationCenter;
 @property (nonatomic) float sensitivityModifier;

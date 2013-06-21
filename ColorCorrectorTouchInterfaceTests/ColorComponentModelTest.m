@@ -8,7 +8,7 @@
 #import "ColorComponentModel.h"
 
     // Collaborators
-
+#import "RGBtoLSVConverter.h"
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -54,35 +54,8 @@
 }
 
 - (void)testInitialStateIsWhite {
-    // given
-    LSVColor* white = [[LSVColor alloc]init];
-    // when
-    white.luminance = 1.0;
-    white.saturation = 0.0;
-    // then
-    expect([sut.lsvColor isEqual:white]).to.beTruthy();
-}
-
-- (void)testInitialStateRGBIsWhite {
-    // given
     RGBColor* white = [[RGBColor alloc]init];
-    // when
-    white.red = 1.0;
-    white.green = 1.0;
-    white.blue = 1.0;
-    // then
-    expect(sut.rgbColor).to.equal(white);
-}
-
-- (void)testChangingSaturation {
-    // given
-    CGPoint pt = CGPointMake(23, 18);
-    float oldSaturation = sut.lsvColor.saturation;
-    // when
-    [sut changeHueAndSaturation:pt];
-    // then
-    expect(sut.lsvColor.saturation).to.beGreaterThan(0);
-    expect(oldSaturation).to.equal(0);
+    expect([sut.rgbColor isEqual:white]).to.beTruthy();
 }
 
 - (void)testTealishHue {
@@ -90,32 +63,36 @@
     CGPoint pt = CGPointMake(0, -3); // 180°
     // when
     [sut changeHueAndSaturation:pt];
+    LSVColor * color = [RGBtoLSVConverter convertColor:sut.rgbColor];
     // then
-    expect(sut.lsvColor.hue).to.equal(0.5);
+    expect(color.hue).to.equal(0.5);
 }
 - (void)testPurplishHue {
     // given
-    CGPoint pt = CGPointMake(10, 0); // 90°
+    CGPoint pt = CGPointMake(1, 0); // 90°
     // when
     [sut changeHueAndSaturation:pt];
+    LSVColor * color = [RGBtoLSVConverter convertColor:sut.rgbColor];
     // then
-    expect(sut.lsvColor.hue).to.equal(0.25);
+    expect(color.hue).to.equal(0.25);
 }
 - (void)testGreenishHue {
     // given
-    CGPoint pt = CGPointMake(-8, 0); // 270°
+    CGPoint pt = CGPointMake(-2, 0); // 270°
     // when
     [sut changeHueAndSaturation:pt];
+    LSVColor * color = [RGBtoLSVConverter convertColor:sut.rgbColor];
     // then
-    expect(sut.lsvColor.hue).to.equal(0.75);
+    expect(color.hue).to.equal(0.75);
 }
 - (void)testRedishHue {
     // given
     CGPoint pt = CGPointMake(0, 10); // 0°
     // when
     [sut changeHueAndSaturation:pt];
+    LSVColor * color = [RGBtoLSVConverter convertColor:sut.rgbColor];
     // then
-    expect(sut.lsvColor.hue).to.equal(0.0);
+    expect(color.hue).to.equal(0.0);
 }
 
 - (void)testHasNotificationCenter {
@@ -156,7 +133,6 @@
 }
 
 - (void)testComponentEnumWorks{
-    // then
     expect(ComponentTypeGain).notTo.equal(ComponentTypeGamma);
 }
 

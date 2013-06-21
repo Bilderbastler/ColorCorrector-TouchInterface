@@ -15,7 +15,7 @@
 @property (nonatomic) float blue;
 
 
--(void)setRGBFromLSV:(LSVColor*)newColor;
++(RGBColor*)colorWithRed:(float)red green:(float)green blue:(float)blue;
 -(void)blendWithColor:(RGBColor*)otherColor mix:(float)strength;
 -(UIColor*)uiColorFromRGB;
 @end

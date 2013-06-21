@@ -15,6 +15,13 @@ static float maximumValue = 10;
 
 @implementation RGBColor
 
++(RGBColor*)colorWithRed:(float)red green:(float)green blue:(float)blue{
+    RGBColor* color = [[RGBColor alloc] init];
+    color.red = red;
+    color.green = green;
+    color.blue = blue;
+    return color;
+}
 
 - (id)init
 {
@@ -42,73 +49,6 @@ static float maximumValue = 10;
                                         blue:self.blue / max
                                        alpha:1.0];
     return newColor;
-}
-
--(void)setRGBFromLSV:(LSVColor *)newColor{
-    float   h,s,v;
-    h = newColor.hue;
-    s = newColor.saturation;
-    v = newColor.luminance;
-    
-    double  hh, p, q, t, ff;
-    long    i;
-    
-    if(s < 0.0) {
-        if(isnan(h)) {   
-            _red = v;
-            _green = v;
-            _blue = v;
-        }else{
-            _red = 0.0;
-            _green = 0.0;
-            _blue = 0.0;
-        }
-    }else{
-        h = h * 360;
-        hh = h;
-        if(hh >= 360) hh = 0.0;
-        hh = hh / 60;
-        i = (long)hh;
-        ff = hh - i;
-        p = v * (1.0 - s);
-        q = v * (1.0 - (s * ff));
-        t = v * (1.0 - (s * (1.0 - ff)));
-        
-        switch(i) {
-            case 0: //Red
-                _red = v;
-                _green = t;
-                _blue = p;
-                break;
-            case 1: //Magenta
-                _red = q;
-                _green = p;
-                _blue = v;
-                break;
-            case 2: //Blue
-                _red = p;
-                _green = t;
-                _blue = v;
-                break;
-                
-            case 3: //Cyan
-                _red = p;
-                _green = q;
-                _blue = v;
-                break;
-            case 4: //Green
-                _red = t;
-                _green = v;
-                _blue= p;
-                break;
-            case 5: //Yellow
-            default:
-                _red = v;
-                _green = q;
-                _blue = p;
-                break;
-        }
-    }
 }
 
 -(void)setRed:(float)red{
@@ -154,6 +94,4 @@ static float maximumValue = 10;
         return NO;
     }
 }
-
-
 @end

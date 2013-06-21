@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A20E76E1774D99200AF6A7E /* LSVToRGBConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A20E76D1774D99200AF6A7E /* LSVToRGBConverter.m */; };
+		9A20E7701774DA9100AF6A7E /* LSVToRGBConverterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A20E76F1774DA9100AF6A7E /* LSVToRGBConverterTest.m */; };
+		9A20E7731774EB0600AF6A7E /* RGBtoLSVConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A20E7721774EB0600AF6A7E /* RGBtoLSVConverter.m */; };
+		9A20E7751774EB1700AF6A7E /* RGBToLSVConverterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A20E7741774EB1700AF6A7E /* RGBToLSVConverterTest.m */; };
 		9A270D5917664D5900AAC504 /* RGBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5817664D5900AAC504 /* RGBColor.m */; };
 		9A270D5C17664D6700AAC504 /* LSVColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5B17664D6700AAC504 /* LSVColor.m */; };
 		9A270D5E1766524500AAC504 /* RGBColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A270D5D1766524500AAC504 /* RGBColorTest.m */; };
@@ -54,6 +58,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A20E76C1774D99200AF6A7E /* LSVToRGBConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVToRGBConverter.h; sourceTree = "<group>"; };
+		9A20E76D1774D99200AF6A7E /* LSVToRGBConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVToRGBConverter.m; sourceTree = "<group>"; };
+		9A20E76F1774DA9100AF6A7E /* LSVToRGBConverterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVToRGBConverterTest.m; sourceTree = "<group>"; };
+		9A20E7711774EB0600AF6A7E /* RGBtoLSVConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBtoLSVConverter.h; sourceTree = "<group>"; };
+		9A20E7721774EB0600AF6A7E /* RGBtoLSVConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBtoLSVConverter.m; sourceTree = "<group>"; };
+		9A20E7741774EB1700AF6A7E /* RGBToLSVConverterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBToLSVConverterTest.m; sourceTree = "<group>"; };
 		9A270D5717664D5900AAC504 /* RGBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBColor.h; sourceTree = "<group>"; };
 		9A270D5817664D5900AAC504 /* RGBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBColor.m; sourceTree = "<group>"; };
 		9A270D5A17664D6700AAC504 /* LSVColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVColor.h; sourceTree = "<group>"; };
@@ -170,6 +180,10 @@
 				9A270D5817664D5900AAC504 /* RGBColor.m */,
 				9A270D5A17664D6700AAC504 /* LSVColor.h */,
 				9A270D5B17664D6700AAC504 /* LSVColor.m */,
+				9A20E76C1774D99200AF6A7E /* LSVToRGBConverter.h */,
+				9A20E76D1774D99200AF6A7E /* LSVToRGBConverter.m */,
+				9A20E7711774EB0600AF6A7E /* RGBtoLSVConverter.h */,
+				9A20E7721774EB0600AF6A7E /* RGBtoLSVConverter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +314,8 @@
 		9A8B75D2174FB95B001F2489 /* ColorCorrectorTouchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A20E7741774EB1700AF6A7E /* RGBToLSVConverterTest.m */,
+				9A20E76F1774DA9100AF6A7E /* LSVToRGBConverterTest.m */,
 				9ABA58EC176BD35900970F68 /* LayerFactoryTest.m */,
 				9A3958E31769187100C3AAC2 /* LuminanceSurfaceViewTest.m */,
 				9A3958E1176917F700C3AAC2 /* ColorSurfaceViewTest.m */,
@@ -451,6 +467,8 @@
 				9A3958DD1769170800C3AAC2 /* ColorSurfaceView.m in Sources */,
 				9A3958E01769172A00C3AAC2 /* LuminanceSurfaceView.m in Sources */,
 				9ABA58EB176BD2F300970F68 /* LayerFactory.m in Sources */,
+				9A20E76E1774D99200AF6A7E /* LSVToRGBConverter.m in Sources */,
+				9A20E7731774EB0600AF6A7E /* RGBtoLSVConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +485,8 @@
 				9A3958E41769187100C3AAC2 /* LuminanceSurfaceViewTest.m in Sources */,
 				9ABA58ED176BD35900970F68 /* LayerFactoryTest.m in Sources */,
 				9A5F46E7176E439300C072FA /* EXPMatchers+beVerified.m in Sources */,
+				9A20E7701774DA9100AF6A7E /* LSVToRGBConverterTest.m in Sources */,
+				9A20E7751774EB1700AF6A7E /* RGBToLSVConverterTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -129,124 +129,6 @@
     expect(sut.blue).to.equal(10);
 }
 
-- (void)testGreyHSVConvertsToGreyRGB {
-    // given
-    LSVColor* grey = [[LSVColor alloc]init];
-    // when
-    grey.luminance = 0.5;
-    grey.saturation = 0.0;
-    [sut setRGBFromLSV:grey];
-    // then
-    expect(sut.blue).to.equal(grey.luminance);
-    expect(sut.red).to.equal(grey.luminance);
-    expect(sut.green).to.equal(grey.luminance);
-}
-
-- (void)testRedHSVConvertsToRedRGB {
-    // given
-    LSVColor* red = [[LSVColor alloc]init];
-    // when
-    red.hue = 1; // red
-    red.luminance = 1;
-    red.saturation = 1;
-    [sut setRGBFromLSV:red];
-    // then
-    expect(sut.red).to.equal(1.0);
-    expect(sut.green).to.equal(0.0);
-    expect(sut.blue).to.equal(0.0);
-}
-- (void)testGreenHSVConvertsToGreenRGB {
-    // given
-    LSVColor* green = [[LSVColor alloc]init];
-    // when
-    green.hue = 2.f/3.f; //green
-    green.luminance = 1;
-    green.saturation = 1;
-    [sut setRGBFromLSV:green];
-    // then
-    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(0.0, 0.0001);
-}
-
-- (void)testBlueHSVConvertsToBlueRGB {
-    // given
-    LSVColor* blue = [[LSVColor alloc]init];
-    // when
-    blue.hue = 1.f/3.f; //blue
-    blue.luminance = 1;
-    blue.saturation = 1;
-    [sut setRGBFromLSV:blue];
-    // then
-    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
-}
-- (void)testYellowHSVConvertsYellowRGB {
-    // given
-    LSVColor* yellow = [[LSVColor alloc]init];
-    // when
-    yellow.hue = 5.0/6.0;
-    yellow.luminance = 1.f;
-    yellow.saturation = 1.f;
-    [sut setRGBFromLSV:yellow];
-    // then
-    expect(sut.red).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(0.0, 0.0001);
-}
-
-- (void)testMagentaHSVConvertsMagentaRGB {
-    // given
-    LSVColor* magenta = [[LSVColor alloc]init];
-    // when
-    magenta.hue = 1.0/6.0;
-    magenta.luminance = 1.f;
-    magenta.saturation = 1.f;
-    [sut setRGBFromLSV:magenta];
-    // then
-    expect(sut.red).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
-}
-- (void)testCyanHSVConvertsCyanRGB {
-    // given
-    LSVColor* cyan = [[LSVColor alloc]init];
-    // when
-    cyan.hue = 3.0/6.0;
-    cyan.luminance = 1.f;
-    cyan.saturation = 1.f;
-    [sut setRGBFromLSV:cyan];
-    // then
-    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
-}
-- (void)testBlackHSVConvertsBlackRGB {
-    // given
-    LSVColor* black = [[LSVColor alloc]init];
-    // when
-    black.luminance = 0;
-    [sut setRGBFromLSV:black];
-    // then
-    expect(sut.red).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(0.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(0.0, 0.0001);
-}
-
-- (void)testWhiteHSVConvertsWhiteRGB {
-    // given
-    LSVColor* white = [[LSVColor alloc]init];
-    // when
-    white.luminance = 1;
-    white.saturation = 0;
-    [sut setRGBFromLSV:white];
-    // then
-    expect(sut.red).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.green).to.beCloseToWithin(1.0, 0.0001);
-    expect(sut.blue).to.beCloseToWithin(1.0, 0.0001);
-}
-
 - (void)testMixGreenWithMagenta {
     // given
     RGBColor* whiteColor = sut;
@@ -290,6 +172,19 @@
     RGBColor* copy = [sut copy];
     // then
     expect(sut).to.equal(copy);
+}
+
+- (void)testStaticCreatorMakesColorObject {
+    // given
+    sut.red = .2;
+    sut.green = 1.2;
+    sut.blue = .9;
+    // when
+    RGBColor* newColor = [RGBColor colorWithRed:sut.red
+                                          green:sut.green
+                                           blue:sut.blue];
+    // then
+    expect(sut).to.equal(newColor);
 }
 
 @end
