@@ -36,10 +36,27 @@ static float maximumValue = 10;
 }
 
 -(void)blendWithColor:(RGBColor *)otherColor mix:(float)strength{
+    float luminance = [self getLuminance];
+    [self addColor:otherColor withStrengh:strength];
+    [self restoreLuminanceTo:luminance];
+}
+
+- (void)addColor:(RGBColor *)otherColor withStrengh:(float)strength {
     _red = MIN(_red + (otherColor.red * strength), maximumValue);
     _green = MIN(_green + (otherColor.green * strength), maximumValue);
     _blue = MIN(_blue + (otherColor.blue * strength), maximumValue);
-    
+}
+
+- (void)restoreLuminanceTo:(float)luminance {
+    float increasedLuminance = [self getLuminance];
+    float luminanceChange = increasedLuminance / luminance;
+    self.red = _red / luminanceChange;
+    self.green = _green / luminanceChange;
+    self.blue = _blue / luminanceChange;
+}
+
+-(float)getLuminance{
+    return MAX(_red, MAX(_green, _blue));
 }
 
 -(UIColor *)uiColorFromRGB{

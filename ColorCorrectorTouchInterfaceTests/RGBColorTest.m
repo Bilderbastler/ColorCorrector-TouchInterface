@@ -151,9 +151,7 @@
     // when
     [sut blendWithColor:otherWhiteColor mix:1.0];
     // then
-    expect(sut.red).to.equal(otherWhiteColor.red *2);
-    expect(sut.green).to.equal(otherWhiteColor.green * 2);
-    expect(sut.blue).to.equal(otherWhiteColor.blue *2);
+    expect(sut).to.equal(otherWhiteColor);
 }
 
 - (void)testCopyResultInAnotherObject {

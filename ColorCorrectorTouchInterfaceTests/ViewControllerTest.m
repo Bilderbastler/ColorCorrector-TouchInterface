@@ -93,7 +93,29 @@
     
     // then
     expect(colorMock).to.beVerified();
-    [colorMock verify];
+}
+
+- (void)testViewControllerCallsModelWhenLuminanceInterfaceReceivesMovingTouch {
+    // given
+    UIPanGestureRecognizer *gr = [[UIPanGestureRecognizer alloc] initWithTarget:nil action:nil];
+    id grMock  = [OCMockObject partialMockForObject:gr];
+    [[[grMock stub] andReturnValue: OCMOCK_VALUE((NSUInteger){1})] numberOfTouches];
+    id viewMock = [OCMockObject mockForClass: [LuminanceSurfaceView class]];
+    sut.luminanceField = viewMock;
+    [[[grMock stub] andReturn: sut.luminanceField] view];
+    CGPoint velocityVektor = CGPointMake(20, 20);
+    [[[grMock stub] andReturnValue: OCMOCK_VALUE(velocityVektor)] velocityInView:sut.luminanceField];
+    
+    ColorComponentModel *colorComponent = [OCMockObject mockForClass: [ColorComponentModel class]];
+    id colorMock = colorComponent;
+    [[colorMock expect] changeLuminance:velocityVektor.y];
+    sut.gain = colorComponent;
+    
+    // when
+    [sut fingerMoved:gr];
+    
+    // then
+    expect(colorMock).to.beVerified();
 }
 
 - (void)testControllerReceivesColorChangeNotification {

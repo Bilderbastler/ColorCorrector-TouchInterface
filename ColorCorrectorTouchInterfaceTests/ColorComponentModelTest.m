@@ -153,18 +153,4 @@
     expect(ComponentTypeLift).to.equal(2);
 }
 
-- (void)testTwoContraryMovementsResultInOldColor {
-    // given
-    CGPoint firstMovement = CGPointMake(2, 6);
-    CGPoint secondMovement = CGPointMake(3, 4);
-    CGPoint contraryMovement = CGPointMake(secondMovement.x * -1, secondMovement.y * -1);
-    // when
-    [sut changeHueAndSaturation:firstMovement];
-    [sut changeHueAndSaturation:secondMovement];
-    RGBColor* oldColor = [sut.rgbColor copy];
-    [sut changeHueAndSaturation:contraryMovement];
-    // then
-    expect(sut.rgbColor).to.equal(oldColor);
-}
-
 @end

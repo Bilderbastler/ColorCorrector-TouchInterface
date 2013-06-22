@@ -36,25 +36,12 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
     _activeColorComponent = ComponentTypeGain;
-    _activeColorComponent = ComponentTypeGain;
-    
+    _activeLuminanceComponent = ComponentTypeGain;    
     [_notificationCenter addObserver:self selector:@selector(aColorModelHasChanged:) name:ColorDidChangeNotification object:nil];
-    
     [self setupGestureRecognizers];
     [self setupColorProperties];
-}
-
-- (void)setupGestureRecognizers{
-    [self addGestureRecognizrforNumberOfFingers:1 toView:self.colorField];
-    [self addGestureRecognizrforNumberOfFingers:2 toView:self.colorField];
-    [self addGestureRecognizrforNumberOfFingers:3 toView:self.colorField];
-    
-    [self addGestureRecognizrforNumberOfFingers:1 toView:self.luminanceField];
-    [self addGestureRecognizrforNumberOfFingers:2 toView:self.luminanceField];
-    [self addGestureRecognizrforNumberOfFingers:3 toView:self.luminanceField];
 }
 
 - (void)addGestureRecognizrforNumberOfFingers:(int)numberOfFingers toView:(UIView *)controllField{
@@ -64,21 +51,31 @@
     [controllField addGestureRecognizer:gr];
 }
 
+- (void)setupGestureRecognizers{
+    for (int i = 1; i <= 3; i++) {
+        [self addGestureRecognizrforNumberOfFingers:i toView:self.colorField];
+        [self addGestureRecognizrforNumberOfFingers:i toView:self.luminanceField];
+    }
+}
+
 - (void)setupColorProperties {
     _gammaBrightness = self.luminanceField.backgroundColor;
-    _gainBrightness = self.luminanceField.backgroundColor;
-    _liftBrightness = self.luminanceField.backgroundColor;
+    _gainBrightness = [self.luminanceField.backgroundColor copy];
+    _liftBrightness = [self.luminanceField.backgroundColor copy];
     
     _liftColor = self.colorField.backgroundColor;
-    _gammaColor = self.colorField.backgroundColor;
-    _gainColor = self.colorField.backgroundColor;
+    _gammaColor = [self.colorField.backgroundColor copy];
+    _gainColor = [self.colorField.backgroundColor copy];
 }
 
 -(void)aColorModelHasChanged:(NSNotification *)notification{
     RGBColor* newColorValues = notification.object;
-    assert([newColorValues isKindOfClass:[RGBColor class]]);
     NSInteger component = [[notification.userInfo objectForKey:@"component"] integerValue];
     UIColor* newColor = [newColorValues uiColorFromRGB];
+    [self updateInterfaceColor:newColor component:component];
+}
+
+- (void)updateInterfaceColor:(UIColor *)newColor component:(ComponentType)component {
     switch (component) {
         case ComponentTypeGain:
             _gainColor = newColor;
@@ -98,7 +95,16 @@
 
 - (void)fingerMoved:(UIPanGestureRecognizer*)gr{
     CGPoint vector = [gr velocityInView:gr.view];
-    switch (gr.numberOfTouches) {
+    NSUInteger numberOfTouches = gr.numberOfTouches;
+    if (gr.view == self.colorField) {
+        [self touch:vector onColorWidgetWithFingers:numberOfTouches];
+    }else if (gr.view == self.luminanceField){
+        [self touch:vector onLuminanceWidgetWithFingers:numberOfTouches];
+    }
+}
+
+- (void)touch:(CGPoint)vector onColorWidgetWithFingers:(NSUInteger)numberOfTouches {
+    switch (numberOfTouches) {
         case 1:
             [self.gain changeHueAndSaturation:vector];
             break;
@@ -107,6 +113,20 @@
             break;
         case 3:
             [self.lift changeHueAndSaturation:vector];
+            break;
+    }
+}
+
+- (void)touch:(CGPoint)vector onLuminanceWidgetWithFingers:(NSUInteger)numberOfTouches {
+    switch (numberOfTouches) {
+        case 1:
+            [self.gain changeLuminance:vector.y];
+            break;
+        case 2:
+            [self.gamma changeLuminance:vector.y];
+            break;
+        case 3:
+            [self.lift changeLuminance:vector.y];
             break;
     }
 }

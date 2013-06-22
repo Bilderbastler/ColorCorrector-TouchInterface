@@ -14,9 +14,9 @@ extern NSString *const ComponentChangeTypeColor;
 extern NSString *const ComponentChangeTypeLuminance;
 
 typedef NS_ENUM(NSInteger, ComponentType) {
-    ComponentTypeGain,
-    ComponentTypeGamma,
-    ComponentTypeLift
+    ComponentTypeGain = 0,
+    ComponentTypeGamma = 1,
+    ComponentTypeLift = 2
 };
 
 @interface ColorComponentModel : NSObject
@@ -25,7 +25,8 @@ typedef NS_ENUM(NSInteger, ComponentType) {
 @property (nonatomic, weak) NSNotificationCenter* notificationCenter;
 @property (nonatomic) float sensitivityModifier;
 
-- (id)initWithComponentType:(ComponentType)component;
+-(id)initWithComponentType:(ComponentType)component;
 -(void)changeHueAndSaturation:(CGPoint)velocityVector;
+-(void)changeLuminance:(float)direction;
 
 @end

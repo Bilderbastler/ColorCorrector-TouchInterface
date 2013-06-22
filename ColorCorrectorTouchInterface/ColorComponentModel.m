@@ -27,7 +27,7 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
         _component = component;
         self.notificationCenter = [NSNotificationCenter defaultCenter];
         self.rgbColor = [[RGBColor alloc]init];
-        _sensitivityModifier = 0.05;
+        _sensitivityModifier = 0.01;
     }
     return self;
 }
@@ -47,8 +47,8 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
 }
 
 - (float)saturationFromVector:(CGPoint)vector {
-    float sumOfSqr = vector.x * vector.x + vector.y * vector.y;
-    float saturation = sqrtf(sumOfSqr);
+    float sumOfSquares = vector.x * vector.x + vector.y * vector.y;
+    float saturation = sqrtf(sumOfSquares);
     saturation = saturation / self.sensitivityModifier;
     return saturation;
 }
@@ -65,6 +65,10 @@ NSString *const ComponentChangeTypeLuminance = @"luminance";
     [self.notificationCenter postNotificationName:ColorDidChangeNotification
                                       object:self.rgbColor
                                     userInfo:dict];
+}
+
+-(void)changeLuminance:(float)direction{
+    
 }
 
 @end
